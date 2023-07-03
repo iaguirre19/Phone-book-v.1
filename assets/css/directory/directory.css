@@ -1,0 +1,33 @@
+
+.directory_container{
+    width: 100%;
+    height: 100%;
+    padding: 1rem 3rem;    
+}
+.directory_content {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    margin: 0 auto;
+}
+
+.logo_dashboard{
+    display: block;
+}
+
+.sidebar.active ~ .home_content .logo_dashboard{
+    display: none;
+}
+.background-modal{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    background-color: var(--background-modal);
+    z-index: var(--z-index-negative);
+    transition: all .3s ease-in-out;
+}
+.background-modal.active-modal{
+    z-index: var(--z-index-background);
+    opacity: 1;
+}
