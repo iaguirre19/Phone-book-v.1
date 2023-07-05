@@ -18,9 +18,8 @@ const userSchema = mongoose.Schema({
     unique: true,
     trim: true,
   },
-  extention: {
+  ext: {
     type: String,
-    default: null,
     trim: true,
   },
   manager: {

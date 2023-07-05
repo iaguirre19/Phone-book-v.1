@@ -1,6 +1,6 @@
 import UsersProfile from "../models/UserSchema.js";
 
-const createUser = async (req, res) => {
+const createUser = async (req, res) => { 
   const { email, name } = req.body;
 
   const userValidation = await UsersProfile.findOne({ email });
@@ -20,10 +20,20 @@ const createUser = async (req, res) => {
   }
 };
 
-const getUser = async (req, res) => {
+const getUsers = async (req, res) => {
   const dataUsers = await UsersProfile.find();
   console.log(dataUsers);
   res.json({ msg: "Now you are connected to DB" });
 };
 
-export { createUser, getUser };
+const getUser = async (req, res) => {
+  const { id } = req.params;
+  const user = await UsersProfile.findById(id);
+
+  res.json(user)
+}
+const updateUser = async (req, res) => {}
+const deleteUser = async (req, res) => {}
+ 
+
+export { createUser, getUsers, getUser, updateUser, deleteUser, };

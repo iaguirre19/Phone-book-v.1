@@ -3,8 +3,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import adminRouter from "./routes/adminRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
-// import userRoutes from "./routes/userRoutes.js";
+
 const app = express();
 
 app.use(express.json()); // esta linea convierte el POST en un archivo json legible
@@ -14,7 +15,7 @@ connectDB();
 app.use(cors());
 
 app.use("/api/userAdmin", adminRouter);
-// app.use("/api/users", userRoutes);
+app.use("/api/users", userRoutes);
 // app.use("/api/receptionist", receptionistRoutes);
 
 const PORT = process.env.PORT || 4000;
