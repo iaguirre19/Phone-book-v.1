@@ -1,78 +1,49 @@
-import { loginValidation} from "../api/loginAcces.js";
+import { inputValidation } from "./inputsValidation.js";
 
-const inputsForms = document.querySelectorAll(".login-input");
-const iconPassword = document.querySelector("#showPassword");
+const inputsForms = document.querySelectorAll(".login-input"); //
+const iconPassword = document.querySelector("#showPassword"); //
 const userLogin = document.querySelector("#userLogin");
-const passwordLogin = document.querySelector("#passwordLogin");
+const passwordLogin = document.querySelector("#passwordLogin"); //
 const btnlogin = document.querySelector("#btnLogin");
+const form = document.getElementById('form');
 
 
-btnlogin.addEventListener("submit", sendUser);
+inputValidation(inputsForms, iconPassword, passwordLogin);
 
 
-// Ruta para subir la imagen desde el frontend al servidor
-// app.post("/upload-image", upload.single("image"), register);
+// Maneja el evento de envío del formulario
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita el envío del formulario por defecto
 
-// function createUser(emailInput, passwordInput) {
-  
-//   const email = emailInput.value;
-//   const password = passwordInput.value;
+  // Obtén los valores de los campos de entrada
+  const email = userLogin.value
+  const password = passwordLogin.value;
 
-//   // console.log(email)
-  
-//   let user = {
-//     email: email,
-//     password: password
-//   };
 
-//   return user;
-// }
+  console.log(email)
+  console.log(password)
 
-// btnlogin.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   const user = createUser(userLogin, passwordLogin);
-//   const dato = loginValidation(user);
-//   // alert(dato)
 
-// });
 
-activeInputsOnClick();
-function activeInputsOnClick() {
-  inputsForms.forEach((input) => {
-    input.addEventListener("blur", () => {
-      if (!input.validity.valid) {
-        input.parentElement.classList.remove("active");
-        input.parentElement.classList.add("active-error");
-      } else {
-        input.parentElement.classList.remove("active-error");
-        input.parentElement.classList.add("active");
+  // // Crea un objeto con los datos del formulario
+  // const formData = {
+  //   email: email,
+  //   password: password
+  // };
 
-      }
-    });
-  });
-};
-
-iconPassword.addEventListener("click", function () {
-  passwordLogin.type = passwordLogin.type === "password" ? "text" : "password";
-  passwordLogin.classList.toggle("bx-show");
-  passwordLogin.classList.toggle("bx-hide");
+  // // Realiza una solicitud POST al servidor utilizando Fetch
+  // fetch('/login', {
+  //   method: 'POST',
+  //   body: JSON.stringify(formData),
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // })
+  // .then(response => {
+  //   // Maneja la respuesta del servidor
+  //   // Aquí puedes redirigir al usuario a otra página o manejar la respuesta según corresponda
+  // })
+  // .catch(error => {
+  //   console.error('Error:', error);
+  // });
 });
-
-
-
-function sendUser(e){
-  e.preventDefault();
-
-
-}
-
-
-
-
-
-
-// 
-
-
-
-
