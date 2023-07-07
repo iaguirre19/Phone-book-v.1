@@ -131,3 +131,7 @@ dist
 
 #backend server ignore only for testing the frontend
 # backend/
+
+# private routes
+conf/
+api/

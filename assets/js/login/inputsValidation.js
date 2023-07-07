@@ -4,51 +4,62 @@ export function inputValidation(inputsForms, iconPassword, passwordLogin){
     function activeInputsOnClick() {
       inputsForms.forEach((input) => {
         input.addEventListener("blur", () => {
-            if (input.type === "password") {
-                const password = input.value;
-                const hasSpaces = /\s/.test(password);
-                
-                if (hasSpaces) {
-                  errorInPassword(
-                    input.parentElement,
-                    "Your password cannot have spaces"
-                  );
-                  input.parentElement.classList.add("active-error");
-                } else {
-                  input.parentElement.classList.remove("active-error");
-                }
-
-            }
-
-
-          if (!input.validity.valid) {
-            input.parentElement.classList.remove("active");
-            input.parentElement.classList.add("active-error");
-          } else {
-            input.parentElement.classList.remove("active-error");
-            input.parentElement.classList.add("active");
-          }
+        inputEffect(input);
         });
       });
     }
-
     iconPassword.addEventListener("click", function () {
       passwordLogin.type =passwordLogin.type === "password" ? "text" : "password";
       passwordLogin.classList.toggle("bx-show");
       passwordLogin.classList.toggle("bx-hide");
     });
+};
+
+function inputEffect(input) {
+  if(input.type === "password"){
+      const password = input.value;
+      const hasSpaces = /\s/.test(password);
+
+      if(hasSpaces && input.validity.valid || !input.validity.valid){
+        input.parentElement.classList.add("active-error");
+        input.parentElement.classList.remove("active");
+        hasAnError(input, "No space allowed");
+        
+        
+        if(!input.validity.valid){
+          hasAnError(input, "Empty password ");
+        }
+
+      }else{
+        input.parentElement.classList.remove("active-error");
+        input.parentElement.classList.add("active");
+
+      }
+  }else{
+    if(input.validity.valid){
+      input.parentElement.classList.remove("active-error");
+      input.parentElement.classList.add("active");
+    }else{
+      hasAnError(input, "Please type your email")
+      input.parentElement.classList.add("active-error");
+      input.parentElement.classList.remove("active");
+    }
+  }
 }
 
 
 
 
-const errorInPassword = (container, message) => {
-    const containerParent = container.parentElement.classList;
-    console.log(containerParent);
+const hasAnError = (input, message) => {
+  const containerParent = input.parentElement;
 
-
-    const errorElement = document.createElement("p");
+  const errorElement = document.createElement("p");
   errorElement.className = "password-error";
   errorElement.textContent = message;
-//   container.appendChild(errorElement);
+  containerParent.appendChild(errorElement);
+
+  setTimeout(() => {
+    containerParent.removeChild(errorElement);
+  }, 3000); // 3000 milisegundos = 3 segundos
 };
+
