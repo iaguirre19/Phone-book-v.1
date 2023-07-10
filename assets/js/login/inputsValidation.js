@@ -16,19 +16,28 @@ export function inputValidation(inputsForms, iconPassword, passwordLogin){
 };
 
 function inputEffect(input) {
+  let nameError = false
+  let passwordError = false
+
   if(input.type === "password"){
       const password = input.value;
       const hasSpaces = /\s/.test(password);
 
+      if (!input.validity.valid) {
+        input.parentElement.classList.add("active-error");
+        return hasAnError(input, "Empty password ");
+      }
+
       if(hasSpaces && input.validity.valid || !input.validity.valid){
         input.parentElement.classList.add("active-error");
         input.parentElement.classList.remove("active");
-        hasAnError(input, "No space allowed");
+        return hasAnError(input, "No space allowed");
         
-        
-        if(!input.validity.valid){
-          hasAnError(input, "Empty password ");
-        }
+
+
+        // if(!input.validity.valid){
+        //   hasAnError(input, "Empty password ");
+        // }
 
       }else{
         input.parentElement.classList.remove("active-error");
@@ -40,7 +49,9 @@ function inputEffect(input) {
       input.parentElement.classList.remove("active-error");
       input.parentElement.classList.add("active");
     }else{
-      hasAnError(input, "Please type your email")
+      if(input.type === "email"){
+        hasAnError(input, "Please type your email")
+      }
       input.parentElement.classList.add("active-error");
       input.parentElement.classList.remove("active");
     }
