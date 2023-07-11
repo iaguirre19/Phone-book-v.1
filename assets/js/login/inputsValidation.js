@@ -1,5 +1,5 @@
 
-export function inputValidation(inputsForms, iconPassword, passwordLogin){    
+function inputValidation(inputsForms, iconPassword, passwordLogin){    
     activeInputsOnClick();
     function activeInputsOnClick() {
       inputsForms.forEach((input) => {
@@ -32,13 +32,6 @@ function inputEffect(input) {
         input.parentElement.classList.add("active-error");
         input.parentElement.classList.remove("active");
         return hasAnError(input, "No space allowed");
-        
-
-
-        // if(!input.validity.valid){
-        //   hasAnError(input, "Empty password ");
-        // }
-
       }else{
         input.parentElement.classList.remove("active-error");
         input.parentElement.classList.add("active");
@@ -61,16 +54,67 @@ function inputEffect(input) {
 
 
 
-const hasAnError = (input, message) => {
-  const containerParent = input.parentElement;
+// const hasAnError = (input, message) => {
+//   const containerParent = input.parentElement;
+//   const errorElement = document.createElement("p");
+//   errorElement.className = "input-error";
+//   errorElement.textContent = message;
+//   containerParent.appendChild(errorElement);
+//   input.focus();
+//   input.value = "";
+//   input.parentElement.classList.add("active-error");
+//   setTimeout(() => {
+//     containerParent.removeChild(errorElement);
+//   }, 5000); 
+// };
 
+
+// const errorFromServer = (inputs, type, message) => {
+//   inputs.forEach((input) => {
+//     if(input.type === type){
+//       return hasAnError(input, message);
+//     }else{
+
+//     }
+//   })
+// }
+
+
+const addErrorElement = (container, message) => {
   const errorElement = document.createElement("p");
-  errorElement.className = "password-error";
+  errorElement.className = "input-error";
   errorElement.textContent = message;
-  containerParent.appendChild(errorElement);
-
-  setTimeout(() => {
-    containerParent.removeChild(errorElement);
-  }, 3000); // 3000 milisegundos = 3 segundos
+  container.appendChild(errorElement);
 };
 
+const hasAnError = (input, message) => {
+  const containerParent = input.parentElement;
+  addErrorElement(containerParent, message);
+  input.focus();
+  input.value = "";
+  containerParent.classList.add("active-error");
+
+  setTimeout(() => {
+    const errorElement = containerParent.querySelector(".input-error");
+    if (errorElement) {
+      containerParent.removeChild(errorElement);
+    }
+  }, 4000);
+};
+
+const errorFromServer = (inputs, type, message) => {
+  inputs.forEach((input) => {
+    if (input.type === type) {
+      hasAnError(input, message);
+    }
+  });
+};
+
+
+
+
+
+export {
+  errorFromServer,
+  inputValidation
+}

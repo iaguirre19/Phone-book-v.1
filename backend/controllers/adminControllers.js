@@ -114,15 +114,13 @@ const authenticator = async (req, res) => {
   const user = await AdminProfiles.findOne({ email });
 
   if (!user) {
-    const error = new Error(
-      "The user does not exist please type a valid username"
-    );
-    return res.status(404).json({ msg: error.message });
+    const error = new Error("User not found, please try again");
+    return res.status(404).json({ msg: error.message, type: "email" });
   }
   // check if the user already confirmed his account
   if (!user.confirmed) {
     const error = new Error("Your account has not been confirmed");
-    return res.status(403).json({ msg: error.message });
+    return res.status(403).json({ msg: error.message, type: "confirmation" });
   }
 
   //check the user passwoer is correct
@@ -130,7 +128,7 @@ const authenticator = async (req, res) => {
     res.json({ token: generateJWT(user.id) });
   } else {
     const error = new Error("Your password is invalid");
-    return res.status(403).json({ msg: error.message });
+    return res.status(403).json({ msg: error.message, type: "password" });
   }
 };
 

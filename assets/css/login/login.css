@@ -71,7 +71,6 @@ section{
     display: flex;
     flex-direction: column;
     padding: 0rem 1rem;
-    /* gap: 2rem; */
 }
 .login__right-form label{
     font-size: 1.5rem;
@@ -117,7 +116,7 @@ section{
     background-color: var(--color-error);
     color: var(--text-color);
 }
-.password-error{
+.input-error{
     position: absolute;
     height: 18px;
     width: 100%;
@@ -136,7 +135,6 @@ section{
     
 }
 .login-btn{
-    margin-top: 2rem;
     padding: 1rem;
     font-size: var(--links-size);
     background-color: var(--base-color);
@@ -146,6 +144,7 @@ section{
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: var(--shadow-btn);
+    margin-top: 1.2rem;
 }
 .login-btn:hover{
     background-color: var(--hover-color);
