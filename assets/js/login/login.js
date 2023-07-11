@@ -1,7 +1,9 @@
-// import { URL_LOGIN, URL_PROFILE } from "../conf/private-routes.js";
-// import { error } from "console";
-import { loginAuth } from "../api/http-provider.js";
-import { inputValidation, errorFromServer } from "./inputsValidation.js";
+import { loginAuth, getUserLoggedIn } from "../api/http-provider.js";
+import {
+  inputValidation,
+  errorFromServer,
+  printErrorConfirmation,
+} from "./inputsValidation.js";
 
 const inputsForms = document.querySelectorAll(".login-input"); //
 const iconPassword = document.querySelector("#showPassword"); //
@@ -11,39 +13,27 @@ const form = document.getElementById('form');
 
 inputValidation(inputsForms, iconPassword, passwordLogin);
 
-const token = localStorage.getItem("token");
 
-// form.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const email = userLogin.value;
-//   const password = passwordLogin.value;
 
-//   const loginData = {
-//     email,
-//     password,
-//   };
-  
-//   loginAuth(loginData)
-//   .then((dataFromServer) => {
-//       const {resStatus, resMessage, type } = dataFromServer;
-//       if(resStatus === 403){
-//         if(type === "confirmation"){
-//           return console.log("confirmation error")
-//         }else{
-//           return errorFromServer(inputsForms, type, resMessage);
-//         }
-//       }
+function handleResponse(dataFromServer) {
+  return new Promise((resolve, reject) => {
+    const { resStatus, resMessage, type } = dataFromServer;
 
-//       if(resStatus === 404){
-//         return errorFromServer(inputsForms, type, resMessage);
-//       }
-//     })
-//     .catch((error) => {
-//       const e = new Error("Erro  404, Please contact IT department."); // Manejo de errores si ocurre alguna excepción
-//       alert(e);
-//     });
-// });
-
+    if (resStatus === 403) {
+      if (type === "confirmation") {
+        printErrorConfirmation(resMessage);
+      } else {
+        errorFromServer(inputsForms, type, resMessage);
+      }
+      reject(new Error("Error 403"));
+    } else if (resStatus === 404) {
+      errorFromServer(inputsForms, type, resMessage);
+      reject(new Error("Error 404"));
+    } else {
+      resolve(dataFromServer);
+    }
+  });
+}
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -57,37 +47,20 @@ form.addEventListener("submit", async function (event) {
 
   try {
     const dataFromServer = await loginAuth(loginData);
-    const { resStatus, resMessage, type } = dataFromServer;
+    const status = await handleResponse(dataFromServer); // Espera a que la promesa se resuelva o se rechace
+    if(status === 200 ){
+      const token = localStorage.getItem("token");
+      getUserLoggedIn(token)
+        .then((user) => {
+          return user
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
-    if (resStatus === 403) {
-      if (type === "confirmation") {
-        console.log("confirmation error");
-      } else {
-        errorFromServer(inputsForms, type, resMessage);
-      }
-    } else if (resStatus === 404) {
-      errorFromServer(inputsForms, type, resMessage);
     }
   } catch (error) {
-    const errorMessage = "Error 404. Please contact the IT department.";
-    alert(errorMessage);
+    const e = new Error("Error 404, Please contact IT department.");
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-function getLastAddedValue(array) {
-  return array.length > 0 ? array[array.length - 1] : null;
-}
-
-
-
 

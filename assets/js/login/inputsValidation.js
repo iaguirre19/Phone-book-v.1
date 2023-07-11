@@ -16,8 +16,6 @@ function inputValidation(inputsForms, iconPassword, passwordLogin){
 };
 
 function inputEffect(input) {
-  let nameError = false
-  let passwordError = false
 
   if(input.type === "password"){
       const password = input.value;
@@ -53,33 +51,6 @@ function inputEffect(input) {
 
 
 
-
-// const hasAnError = (input, message) => {
-//   const containerParent = input.parentElement;
-//   const errorElement = document.createElement("p");
-//   errorElement.className = "input-error";
-//   errorElement.textContent = message;
-//   containerParent.appendChild(errorElement);
-//   input.focus();
-//   input.value = "";
-//   input.parentElement.classList.add("active-error");
-//   setTimeout(() => {
-//     containerParent.removeChild(errorElement);
-//   }, 5000); 
-// };
-
-
-// const errorFromServer = (inputs, type, message) => {
-//   inputs.forEach((input) => {
-//     if(input.type === type){
-//       return hasAnError(input, message);
-//     }else{
-
-//     }
-//   })
-// }
-
-
 const addErrorElement = (container, message) => {
   const errorElement = document.createElement("p");
   errorElement.className = "input-error";
@@ -110,11 +81,15 @@ const errorFromServer = (inputs, type, message) => {
   });
 };
 
-
+function printErrorConfirmation(message) {
+  const pTag = document.querySelector("p.login_data-text");
+  pTag.textContent = message;
+}
 
 
 
 export {
   errorFromServer,
-  inputValidation
-}
+  inputValidation, 
+  printErrorConfirmation
+};
