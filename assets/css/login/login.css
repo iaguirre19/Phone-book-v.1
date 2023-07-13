@@ -181,5 +181,34 @@ section{
     color: var(--color-base);
     cursor: pointer;
 }
+.form-btn-container{
+    width: 100%;
+    position: relative;
+}
+.login-btn{
+    width: 100%;
+}
+.circle-loader{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top: 2px solid #ccc;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    content: "";
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0;
+}
+.circle-loader.loader {
+    opacity: 1;
+}
 
-
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -20,7 +20,7 @@ const adminSchema = mongoose.Schema({
     unique: true,
     trim: true,
   },
-  rol: {
+  roles: {
     type: String,
     required: true,
     trim: true,
