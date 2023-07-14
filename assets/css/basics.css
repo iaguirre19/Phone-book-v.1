@@ -142,7 +142,6 @@ main{
     left: 0
 }
 
-.dashboard,
 .managers,
 .offices{
     /* background-color: var(--color-secondary-1); */
@@ -151,6 +150,10 @@ main{
 }
 .directory{
     background-color: var(--secunday-color);
+    opacity: 0;
+}
+.dashboard{
+    opacity: 1;
 }
 body.light-theme .directory{
     background-color: var(--body-light-color);

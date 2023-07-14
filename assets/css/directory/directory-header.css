@@ -25,7 +25,7 @@ body.light-theme .logo_dark-mode{
 
 .directory_content-header .content_img img{
     object-fit: contain;
-    width: 5rem;
+    width: 6rem;
 }
 .directory_content-header .content_img span{
     color: var(--text-color);

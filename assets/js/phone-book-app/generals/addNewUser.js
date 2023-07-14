@@ -1,4 +1,4 @@
-import { generateId } from "./idGenerator.js";
+import { generateId } from "../idGenerator.js";
 
 
 const inputModal = document.querySelectorAll(".input-modal");
@@ -41,61 +41,6 @@ const userProfile = [
   }
 ];
 export let userProfilesArray = [];
-
-
-
-// function saveNewUserModal(e) {
-//   e.preventDefault();
-
-//   const newUserObject = {};
-//   const errors = [];
-
-//   inputModal.forEach((input) => {
-//     const inputType = input.dataset.type;
-//     const inputValue = input.value.trim();
-
-//     if (inputValue === "") {
-//       errors.push(input);
-//       input.parentElement.classList.add("active-error");
-//     } 
-//     else {
-//       if (inputType === "phoneNumber") {
-//         const phoneNumber = inputValue.replace(/\s/g, "");
-//         newUserObject[inputType] = phoneNumber;
-//       } 
-//       else if (inputType === "profilePicture") {
-//         const imagen = input.files[0];
-        
-//         if (imagen) {
-//           const reader = new FileReader();
-
-//           reader.onload = function (event) {
-//             const imageURL = event.target.result;
-
-//             newUserObject[inputType] = imageURL;
-
-//             closeModalForm(e);
-//             userProfile.push(newUserObject);
-//             fillProfileData(userProfile);
-
-//           };
-
-//           reader.readAsDataURL(imagen);
-//         }
-//       } else {
-//         newUserObject[inputType] = inputValue;
-//       }
-//     }
-//   });
-
-//   if (errors.length > 0) {
-//     errors[0].focus();   
-//     validateErrorPicture(errors)
-//   }
-
-//   newUserObject.id = generateId();
-//   extractMessagesAndIdFromArray(userProfile);
-// };
 
 
 function saveNewUserModal(e) {

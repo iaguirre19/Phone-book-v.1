@@ -75,7 +75,10 @@
     </div>
     <div class="home_content">
         <main>
-            <section id="dashboardSec" class="dashboard"></section>
+            <section id="dashboardSec" class="dashboard">
+                <canvas id="miGrafico"></canvas>
+                <h2>Hola mundo </h2>
+            </section>
             <section class="directory">
                 <div class="background-modal"></div>
                 <div class="directory_container">
@@ -347,12 +350,14 @@
             <section class="managers"></section>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+    <script src="./assets/js/phone-book-app/dashboard/graffic.js"></script>
     <script type="module" src="./assets/js/generals/authUser.js"></script>
     <script src="./assets/js/users/admin.js"></script>
-    <script src="./assets/js/sidebar/directory.js"></script>
-    <script src="./assets/js/sidebar/navbar.js"></script>
-    <script src="./assets/js/dashboard/chnageTheme.js"></script>
-    <!-- <script src="./assets/js/dashboard/validationModalForm.js"></script> -->
+    <script src="./assets/js/phone-book-app/generals/sidebar/directory.js"></script>
+    <script src="./assets/js/phone-book-app/generals/sidebar/navbar.js"></script>
+    <script src="./assets/js/phone-book-app/generals/chnageTheme.js"></script>
+    <!-- <script src="./assets/js/dashboard/validationModalForm.js"></scrip> -->
     <!-- <script src="./assets/js/dashboard/addNewUser.js" type="module"></script> -->
     <!-- <script src="./assets/js/detailCard.js"></script> -->
     <!-- <script src="../assets/js/conection.js"></script> -->

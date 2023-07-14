@@ -10,7 +10,7 @@ const iconPassword = document.querySelector("#showPassword"); //
 const userLogin = document.querySelector("#userLogin");
 const passwordLogin = document.querySelector("#passwordLogin"); //
 const form = document.getElementById('form');
-const btnLogin = document.querySelector("#btnLogin");
+const loader = document.querySelector(".loader");
 
 
 
@@ -53,30 +53,49 @@ async function loginRequest(event){
     password,
   };
 
+  // try {
+  //   submitBtn();
+  //   const dataFromServer = await loginAuth(loginData);
+  //   const status = await handleResponse(dataFromServer); // Espera a que la promesa se resuelva o se rechace
+  //   if (status === 200) {
+  //     const token = localStorage.getItem("token");
+  //     const user = await getUserLoggedIn(token);
+  //     localStorage.setItem("user", JSON.stringify(user));
+  //     window.location.href = "index.html#dashboard";
+      
+  //     // console.log(userObj)
+  //   }
+  // } catch (error) {
+  //   const e = new Error("Error 404, Please contact IT department.");
+  // };
+
   try {
+    submitBtn();
+
+    // Retrasar la ejecución del código durante 2 segundos
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     const dataFromServer = await loginAuth(loginData);
-    const status = await handleResponse(dataFromServer); // Espera a que la promesa se resuelva o se rechace
+    const status = await handleResponse(dataFromServer);
+
     if (status === 200) {
       const token = localStorage.getItem("token");
       const user = await getUserLoggedIn(token);
       localStorage.setItem("user", JSON.stringify(user));
-      submitBtn();
-      // window.location.href = "index.html#dashboard";
-      
+      window.location.href = "index.html#dashboard";
       // console.log(userObj)
     }
   } catch (error) {
-    const e = new Error("Error 404, Please contact IT department.");
-  };
+    // Manejo de errores
+  }
+
+
 };
 
 const submitBtn = () => {
-  btnLogin.value = "";
-  btnLogin.classList.add("loader");
-
+    loader.classList.add("active");
 
   setTimeout(function() {
-    btnLogin.value = "Login";
-    btnLogin.classList.remove("loader")
-  }, 3500)
+    loader.classList.remove("active")
+  }, 1500)
 }
