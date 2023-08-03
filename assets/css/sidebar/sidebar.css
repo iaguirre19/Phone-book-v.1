@@ -1,27 +1,35 @@
 
-body{
+/* body{
     background-color: var(--secunday-color);
-} 
+}  */
 
 /****************Sidebar*******************/
 .sidebar{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 7.8rem; 
-    background: var(--base-color);
-    padding: .6rem 1.4rem;
+    height: 100vh;
+    width: 8rem; 
+    background: var(--black);
+    padding: 2.2rem 1.4rem 2.2rem;
     transition: all 0.6s ease;
-    border-right: 1px solid var(--reslt-color); 
+    /* border-right: 1px solid var(--reslt-color);  */
     z-index: 4;
+    /* background-color: azure; */
 }
-.sidebar.active{
+/* .sidebar.active{
     width:25rem;
+} */
+/* .sidebar .logo_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .sidebar .logo_content #btn{
     transition: all .3s ease-in;
-    border-radius: 50%;
+    border-radius: 1.2rem;
 }
 .sidebar .logo_content #btn:hover{
     background-color: var(--background-links);
@@ -32,19 +40,24 @@ body{
 }
 
 .sidebar .logo_content .logo{
-    color: var(--text-color-sidebar);
+    color: var(--white);
     display: flex;
-    height: 5rem;
-    width: 100%;
+    height: 4rem;
+    width: 18rem;
     align-items: center;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.5s ease;
 }
+.sidebar .logo_content{
+    width: 70%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+} */
 
-.sidebar.active .logo_content .logo{
+/* .sidebar.active .logo_content .logo{
     opacity: 1;
     pointer-events: none;
+    transition: all 1.7s ease-in-out;
 }
 .logo_content .logo i{
     font-size: 3rem;
@@ -53,18 +66,22 @@ body{
 .logo_content .logo .logo_name{
     font-size: 2rem;
     font-weight: 400;
-    margin-left: 2rem;
+    margin-left: 1.6rem;
     opacity: 0;
     transition: opacity 1s;
-}
-.sidebar.active .logo_content .logo .logo_name{
+    width: 100%;
+    display: none;
+
+} */
+/* .sidebar.active .logo_content .logo .logo_name{
     opacity: 1;
+    display: block;
 }
 .sidebar #btn{
     position: absolute;
     color: var(--text-color-sidebar);
     left: 50%;
-    top: .6rem;
+    top: 3rem;
     font-size: 2.5rem;
     height: 5rem;
     width: 5rem;
@@ -74,15 +91,38 @@ body{
 }
 .sidebar.active #btn{
     left: 92%; 
+    top: 3rem;
+} */
+.sidebar .sidebar_header-logo{
+    margin-bottom: 1.6rem;
+}
+/* .sidebar .toggle_btn{
+    width: 3.2rem;
+    height: 3.2rem;
+    display: grid;
+    place-content: center;
+    margin-bottom: 1.6rem;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    cursor: pointer;
+} */
+
+
+.sidebar .toggle_btn .bxs-arrow-from-left{
+    color: var(--white-sidebar-icons);
+    /* font-size: 2.6rem; */
 }
 .sidebar ul{
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 4.6rem;
 }
 .sidebar ul li{
     position: relative;
     height: 5rem;
     width: 100%;
-    margin: 0 .5rem;
+    margin: .8rem auto;
     list-style: none;
     line-height: 5rem;
 }
@@ -94,7 +134,8 @@ body{
     border-radius: .6rem;
     height: 3.5rem;
     width: 12.2rem;
-    background-color: var(--text-color);
+    color: var(--white-sidebar-text);
+    background-color: var(--black);
     line-height: 3.5rem;
     text-align: center;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
@@ -103,12 +144,12 @@ body{
     pointer-events: none;
 }
 body.light-theme .sidebar ul li .tooltip{
-    background-color: var(--base-color);
+    background-color: var(--black);
     color: var(--text-color-sidebar);
 }
-.sidebar.active ul li .tooltip{
-    display: none;/*Cuando se activa el boton se oculta el submenu*/
-}
+/* .sidebar.active ul li .tooltip{
+    display: none;Cuando se activa el boton se oculta el submenu
+} */
 .sidebar ul li:hover .tooltip{
     transition: all 0.5s ease;
     opacity: 1;
@@ -145,64 +186,69 @@ body.light-theme .sidebar ul li .tooltip{
 .sidebar ul li a{
     display: flex;
     align-items: center;
-    transition: all 0.4s ease;
     border-radius: 1.2rem;
     white-space: nowrap;
 }
 .sidebar ul li a:hover{
-    color: var(--text-color);
-    background-color: var(--hover-color);
+    color: var(--white-sidebar-text);
+    /* background-color: var(--green-dark); */
+    background-color: #d7eaff;
 }
+.sidebar ul li a:hover i{
+    transition: all 0.4s ease;
+    color: black;
+}
+
 .sidebar ul li i{
-    color: var(--text-color-sidebar);
-    height: 5rem;
-    min-width: 5rem;
+    color: var(--white-sidebar-icons);
+    height: 4.8rem;
+    min-width: 4.6rem;
     border-radius:1.2rem;
     line-height: 5rem;
-    font-size: 2rem;
+    /* font-size: 2.4rem; */
     text-align: center;
 }
 .sidebar .links_name{
     opacity: 0;
     pointer-events: none;
-    color: var(--text-color-sidebar);
+    color: var(--black);
+    
 }
-.sidebar.active .links_name{
+/* .sidebar.active .links_name{
     opacity: 1;
     pointer-events: auto;
     transition: all 0.5s ease;
-}
-.sidebar .profile_content{
+} */
+/* .sidebar .profile_content{
     position: absolute;
     color: var(--text-color);
     bottom: 0;
     left: 0;
     width: 100%;
-    /*Esta parte es sobre la informacion del dev que lo coloca en la parte de abajo*/
+    Esta parte es sobre la informacion del dev que lo coloca en la parte de abajo
 }
 .sidebar .profile_content .profile{
     position: relative;
     padding: 1rem .6rem;
     height: 6rem;
-    background-color: none;/*Esto hace que el background del log out no sea 100% si no mas bien como una caja pequena*/
+    background-color: none;Esto hace que el background del log out no sea 100% si no mas bien como una caja pequena
     transition: all 0.4s ease;
-}
-.sidebar.active .profile_content .profile{
+} */
+/* .sidebar.active .profile_content .profile{
     background: var(--secunday-color);
-}
-.profile_content .profile .profile_details{
+} */
+/* .profile_content .profile .profile_details{
     display: flex;
     align-items: center;
     opacity: 0;
     pointer-events: none;
     white-space: nowrap;
-}
-.sidebar.active .profile .profile_details{
+} */
+/* .sidebar.active .profile .profile_details{
     opacity: 1;
     pointer-events: auto;
-}
-.profile .profile_details img{
-    /**Esta es la parte de la imagen de perfil**/
+} */
+/* .profile .profile_details img{
     height: 4.5rem;
     width: 4.5rem;
     object-fit: cover;
@@ -220,26 +266,52 @@ body.light-theme .sidebar ul li .tooltip{
 }
 .profile .profile_details .job{
     font-size: 1.2rem;
-}
+} */
 /*Centro el boton de abajo que es para log out*/
-.profile #log_out{
+/* .login_btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+/* .profile #log_out{
     position: absolute;
     bottom: .5rem;
     left: 50%;
     transform: translateX(-50%);
     min-width: 5rem;
-    line-height: 5rem;
+    line-height: 5.2rem;
     font-size: 2rem;
     border-radius: 1.2rem;
     text-align: center;
-    background: var(--background-links);
+    background: var(--transparent-blue-light);
     color: var(--text-color-sidebar);
-}
-.sidebar.active .profile #log_out{
+} */
+/* .sidebar.active .profile #log_out{
     left: 92%;
 }
 .sidebar.active .profile #log_out{
     background: none;
     color: var(--text-color-sidebar);
-}
+} */
 
+
+.login{
+    width: 4rem;
+    height: 4rem;
+}
+.login_btn-container{
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: .8rem;
+    background-color: #f5faff;
+}
+.login_btn-container:hover{
+    transition: all .3s ease-in-out;
+    box-shadow: var(--box-shadow-ligth);
+}
+.login_btn-container .bx-log-out{
+    color: black;
+}

@@ -11,5 +11,6 @@ searchBtn.addEventListener("click", showSideBar)
 
 function showSideBar(){
     sidebar.classList.toggle("active");
+  
 }
 

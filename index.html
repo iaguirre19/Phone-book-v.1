@@ -6,61 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGI Phone Book</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/generals/header.css">
     <link rel="stylesheet" href="../assets/css/basics.css">
-    <link rel="stylesheet" href="../assets/css/dashboard/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/directory/directory.css">
-    <link rel="stylesheet" href="../assets/css/directory/directory-header.css">
-    <link rel="stylesheet" href="../assets/css/directory/directory-body.css">
-    <link rel="stylesheet" href="../assets/css/directory/card-detail.css">
+    <link rel="stylesheet" href="../assets/css/sidebar/sidebar.css">
+    <link rel="stylesheet" href="./assets/css/admin-tools/admin-tools-v2.css">
+    <!-- <link rel="stylesheet" href="../assets/css/directory/directory.css"> -->
+    <!-- <link rel="stylesheet" href="../assets/css/directory/directory-header.css"> -->
+    <!-- <link rel="stylesheet" href="../assets/css/directory/directory-body.css"> -->
+    <!-- <link rel="stylesheet" href="../assets/css/directory/card-detail.css"> -->
 
 </head>
 <body>
     <div class="sidebar">
-        <div class="logo_content">
-            <div class="logo">
-                <img src="../assets/img/logos/agi-business_logo_blanco.png" alt="agi img" width="30px">
-                <div class="logo_name">Phone Book</div>
+        <div class="sidebar_header-logo">
+            <div class="logo-content">
+                <img src="../assets/img/logos/agi-business_logo_blanco.png" alt="agi img" >
             </div>
-            <i class='bx bx-menu' id="btn"></i>
         </div>
+        <!-- <div id="btn" class="toggle_btn">
+            <i class='bx bxs-arrow-from-left icon'></i>
+        </div> -->
         <ul class="nav_list">
             <li>
-                <a href="#dashboard">
-                    <i class='bx bx-grid-alt'></i>
+                <a href="#dashboard" >
+                    <i class='bx bx-grid-alt icon'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
                 <a href="#directory">
-                    <i class='bx bx-book-content' ></i>
+                    <i class='bx bx-book-content icon' ></i>
                     <span class="links_name">Directory</span>
                 </a>
                 <span class="tooltip">Directory</span>
             </li>
             <li>
                 <a href="#offices">
-                    <i class='bx bx-buildings' ></i>
+                    <i class='bx bx-buildings icon' ></i>
                     <span class="links_name">Offices</span>
                 </a>
                 <span class="tooltip">Offices</span>
             </li>
             <li>
                 <a href="#managers">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bx-user icon'></i>
                     <span class="links_name">Managers</span>
                 </a>
                 <span class="tooltip">Managers</span>
             </li>
             <li>
                 <a href="#createUser">
-                    <i class='bx bx-cog'></i>
-                    <span class="links_name">Admin tools</span>
+                    <i class='bx bx-cog icon'></i>
+                    <span class="links_name">Admin Settings</span>
                 </a>
-                <span class="tooltip">Admin tools</span>
+                <span class="tooltip">Admin Settings</span>
             </li>
         </ul>
-        <div class="profile_content">
+        <div class="login">
+            <a class="login_btn-container" href="./login.html">
+                <i class='bx bx-log-out icon' id="log_out" ></i>
+            </a>
+        </div>
+        <!-- <div class="profile_content">
             <div class="profile">
                 <div class="profile_details">
                     <img id="img-profile" src="../assets/img/profile-picture/michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="profile image">
@@ -69,17 +77,48 @@
                         <div class="job">Web Designer</div>
                     </div>
                 </div>
-                <a href="./login.html"><i class='bx bx-log-out' id="log_out" ></i></a>
+                <a class="login_btn-container" href="./login.html"><i class='bx bx-log-out icon' id="log_out" ></i></a>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="home_content">
-        <main>
-            <section id="dashboardSec" class="dashboard">
-                <canvas id="miGrafico"></canvas>
-                <h2>Hola mundo </h2>
+        <main class="main">
+            <header class="header">
+                <div class="header_left">
+                    <div class="header_left-data">
+                        <i class='bx bx-cog'></i>
+                        <div class="header_title">
+                            <h2 class="section-title" id="sectionName">Admin Settings</h2>
+                            <span class="header_description-title">Manage your team members and their account permissions here.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_right">
+                        <!-- <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider"></span>
+                        </label> -->
+    
+                        <div class="header_right-btns">
+                            <div class="header_rigth-user-profile">
+                                <div class="user_profile-picture"></div>
+                                <div class="user_profile-data">
+                                    <div class="user_profile-data-title">
+                                        <span class="user-name" id="userName">Anna Jhonson</span>
+                                        <span class="user-rol" id="rolProfile">Admin</span>
+                                    </div>
+                                    <i class='bx bx-chevron-down'></i>
+                                </div>
+                            </div>
+                            <button class="btn-add">
+                                <span>Add new User</span>
+                            </button>
+                        </div>
+                </div>
+            </header>
+            <section id="dashboard" class="dashboard">
             </section>
-            <section class="directory">
+            <section id="directory" class="directory">
                 <div class="background-modal"></div>
                 <div class="directory_container">
                     <div class="directory_content">
@@ -346,17 +385,169 @@
                     </div>
                 </div>
             </section>
-            <section class="offices"></section>
-            <section class="managers"></section>
+            <section id="offices" class="offices"></section>
+            <section id="managers" class="managers"></section>
+            <section id="adminTools" class="admin-tools">
+                <div class="adminTools_container">
+                    <div class="adminTools_content-admin">
+                        <div class="adminTools_content-data">
+                            <h4 class="adminTools_content-data-title">Admin users</h4>
+                            <p class="adminTools_content-data-description">Admins can add and remove users and manage organization-level settings</p>
+                        </div>
+                        <div class="adminTools_content-table-container">
+                            <table>
+                              <!-- Encabezado de la tabla -->
+                              <thead>
+                                <tr>
+                                  <th><input type="checkbox"></th>
+                                  <th>Name</th>
+                                  <th>Date Added</th>
+                                  <th>Rol</th>
+                                  <th>Last Activity</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              <!-- Cuerpo de la tabla -->
+                              <tbody>
+                                <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td>Admin</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td>Admin</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td>Admin</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td>Admin</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                
+                               
+                                <!-- Agrega más filas según sea necesario -->
+                              </tbody>
+                            </table>
+                            <button id="scroll-button" class="scroll-button">
+                              <i class='bx bx-down-arrow-alt'></i>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="adminTools_content-users">
+                        <div class="adminTools_content-data">
+                            <h4 class="adminTools_content-data-title">Account users</h4>
+                            <p class="adminTools_content-data-description">Admins can add and remove users and manage organization-level settings</p>
+                        </div>
+                        <div class="adminTools_content-table-container">
+                            <table>
+                              <!-- Encabezado de la tabla -->
+                              <thead>
+                                <tr>
+                                  <th><input type="checkbox"></th>
+                                  <th>Name</th>
+                                  <th>Date Added</th>
+                                  <th>Rol</th>
+                                  <th>Last Activity</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              <!-- Cuerpo de la tabla -->
+                              <tbody>
+                                <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td>Admin</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                               
+                                <!-- Agrega más filas según sea necesario -->
+                              </tbody>
+                            </table>
+                            <button id="scroll-button" class="scroll-button">
+                              <i class='bx bx-down-arrow-alt'></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
-    <script src="./assets/js/phone-book-app/dashboard/graffic.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script> -->
+    <!-- <script src="./assets/js/phone-book-app/dashboard/graffic.js"></script> -->
     <script type="module" src="./assets/js/generals/authUser.js"></script>
     <script src="./assets/js/users/admin.js"></script>
     <script src="./assets/js/phone-book-app/generals/sidebar/directory.js"></script>
-    <script src="./assets/js/phone-book-app/generals/sidebar/navbar.js"></script>
+    <!-- <script src="./assets/js/phone-book-app/generals/sidebar/navbar.js"></script> -->
     <script src="./assets/js/phone-book-app/generals/chnageTheme.js"></script>
+    <script src="./assets/js/phone-book-app/admin-tools/pagination-admin-tools.js"></script>
     <!-- <script src="./assets/js/dashboard/validationModalForm.js"></scrip> -->
     <!-- <script src="./assets/js/dashboard/addNewUser.js" type="module"></script> -->
     <!-- <script src="./assets/js/detailCard.js"></script> -->
