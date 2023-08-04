@@ -23,9 +23,6 @@
                 <img src="../assets/img/logos/agi-business_logo_blanco.png" alt="agi img" >
             </div>
         </div>
-        <!-- <div id="btn" class="toggle_btn">
-            <i class='bx bxs-arrow-from-left icon'></i>
-        </div> -->
         <ul class="nav_list">
             <li>
                 <a href="#dashboard" >
@@ -68,52 +65,41 @@
                 <i class='bx bx-log-out icon' id="log_out" ></i>
             </a>
         </div>
-        <!-- <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    <img id="img-profile" src="../assets/img/profile-picture/michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="profile image">
-                    <div class="name_job">
-                        <div class="name">Iran Aguirre</div>
-                        <div class="job">Web Designer</div>
-                    </div>
-                </div>
-                <a class="login_btn-container" href="./login.html"><i class='bx bx-log-out icon' id="log_out" ></i></a>
-            </div>
-        </div> -->
     </div>
     <div class="home_content">
         <main class="main">
+            <div class="modals">
+                <!-- Modal new admins or users -->
+                
+            </div>
             <header class="header">
-                <div class="header_left">
-                    <div class="header_left-data">
-                        <i class='bx bx-cog'></i>
-                        <div class="header_title">
-                            <h2 class="section-title" id="sectionName">Admin Settings</h2>
-                            <span class="header_description-title">Manage your team members and their account permissions here.</span>
+                <div class="header_container">
+                    <div class="header_left">
+                        <div class="header_left-data">
+                            <i class='bx bx-cog'></i>
+                            <div class="header_title">
+                                <h2 class="section-title" id="sectionName">Admin Settings</h2>
+                                <span class="header_description-title">Manage your team members and their account permissions here.</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="header_right">
-                        <!-- <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider"></span>
-                        </label> -->
-    
-                        <div class="header_right-btns">
-                            <div class="header_rigth-user-profile">
-                                <div class="user_profile-picture"></div>
-                                <div class="user_profile-data">
-                                    <div class="user_profile-data-title">
-                                        <span class="user-name" id="userName">Anna Jhonson</span>
-                                        <span class="user-rol" id="rolProfile">Admin</span>
+                    <div class="header_right">
+                            <div class="header_right-btns">
+                                <div class="header_rigth-user-profile">
+                                    <div class="user_profile-picture"></div>
+                                    <div class="user_profile-data">
+                                        <div class="user_profile-data-title">
+                                            <span class="user-name" id="userName">Anna Jhonson</span>
+                                            <span class="user-rol" id="rolProfile">Admin</span>
+                                        </div>
+                                        <i class='bx bx-chevron-down'></i>
                                     </div>
-                                    <i class='bx bx-chevron-down'></i>
                                 </div>
+                                <button class="btn-add">
+                                    Add new user
+                                </button>
                             </div>
-                            <button class="btn-add">
-                                <span>Add new User</span>
-                            </button>
-                        </div>
+                    </div>
                 </div>
             </header>
             <section id="dashboard" class="dashboard">
@@ -401,14 +387,15 @@
                                 <tr>
                                   <th><input type="checkbox"></th>
                                   <th>Name</th>
-                                  <th>Date Added</th>
+                                  <th>Ext</th>
                                   <th>Rol</th>
+                                  <th >Date Added</th>
                                   <th>Last Activity</th>
                                   <th></th>
                                 </tr>
                               </thead>
                               <!-- Cuerpo de la tabla -->
-                              <tbody>
+                              <tbody id="tableBodyadmin">
                                 <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
                                 <tr>
                                   <td><input type="checkbox"></td>
@@ -419,8 +406,9 @@
                                       <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
                                     </div>
                                   </td>
+                                  <td class="user-ext">4003</td>
+                                  <td class="user-rol"><span>Admin</span></td>
                                   <td class="date-added">2023-08-02</td>
-                                  <td>Admin</td>
                                   <td class="last-activity">2023-08-01</td>
                                   <td>
                                     <button class="trash-button"><i class='bx bx-trash'></i></button>
@@ -432,13 +420,14 @@
                                   <td class="user_profile-name">
                                     <div class="user_profile-picture-table"></div>
                                     <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                      <h5 class="user_data-name" id="nameTable">Sophia Williams</h5>
+                                      <span class="user_data-email" id="emailTable">sophia.williams@example.com</span>
                                     </div>
                                   </td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td>Admin</td>
-                                  <td class="last-activity">2023-08-01</td>
+                                  <td class="user-ext">4045</td>
+                                  <td class="user-rol"><span>Admin</span></td>
+                                  <td class="date-added">2023-08-04</td>
+                                  <td class="last-activity">2023-08-03</td>
                                   <td>
                                     <button class="trash-button"><i class='bx bx-trash'></i></button>
                                     <button class="pencil-button"><i class='bx bx-pencil'></i></button>
@@ -449,13 +438,14 @@
                                   <td class="user_profile-name">
                                     <div class="user_profile-picture-table"></div>
                                     <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                      <h5 class="user_data-name" id="nameTable">Michael Johnson</h5>
+                                      <span class="user_data-email" id="emailTable">michael.johnson@example.com</span>
                                     </div>
                                   </td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td>Admin</td>
-                                  <td class="last-activity">2023-08-01</td>
+                                  <td class="user-ext">4038</td>
+                                  <td class="user-rol"><span>User</span></td>
+                                  <td class="date-added">2023-07-28</td>
+                                  <td class="last-activity">2023-07-27</td>
                                   <td>
                                     <button class="trash-button"><i class='bx bx-trash'></i></button>
                                     <button class="pencil-button"><i class='bx bx-pencil'></i></button>
@@ -466,26 +456,23 @@
                                   <td class="user_profile-name">
                                     <div class="user_profile-picture-table"></div>
                                     <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                      <h5 class="user_data-name" id="nameTable">John Doe</h5>
+                                      <span class="user_data-email" id="emailTable">john.doe@example.com</span>
                                     </div>
                                   </td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td>Admin</td>
-                                  <td class="last-activity">2023-08-01</td>
+                                  <td class="user-ext">4012</td>
+                                  <td class="user-rol"><span>User</span></td>
+                                  <td class="date-added">2023-08-03</td>
+                                  <td class="last-activity">2023-08-02</td>
                                   <td>
                                     <button class="trash-button"><i class='bx bx-trash'></i></button>
                                     <button class="pencil-button"><i class='bx bx-pencil'></i></button>
                                   </td>
                                 </tr>
-                                
-                               
+
                                 <!-- Agrega más filas según sea necesario -->
                               </tbody>
                             </table>
-                            <button id="scroll-button" class="scroll-button">
-                              <i class='bx bx-down-arrow-alt'></i>
-                            </button>
                         </div>
 
                     </div>
@@ -501,14 +488,15 @@
                                 <tr>
                                   <th><input type="checkbox"></th>
                                   <th>Name</th>
-                                  <th>Date Added</th>
+                                  <th>Ext</th>
                                   <th>Rol</th>
+                                  <th >Date Added</th>
                                   <th>Last Activity</th>
                                   <th></th>
                                 </tr>
                               </thead>
                               <!-- Cuerpo de la tabla -->
-                              <tbody>
+                              <tbody id="tableBodyUser">
                                 <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
                                 <tr>
                                   <td><input type="checkbox"></td>
@@ -519,21 +507,90 @@
                                       <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
                                     </div>
                                   </td>
+                                  <td class="user-ext">4003</td>
+                                  <td class="user-rol"><span>Reception</span></td>
                                   <td class="date-added">2023-08-02</td>
-                                  <td>Admin</td>
                                   <td class="last-activity">2023-08-01</td>
                                   <td>
                                     <button class="trash-button"><i class='bx bx-trash'></i></button>
                                     <button class="pencil-button"><i class='bx bx-pencil'></i></button>
                                   </td>
                                 </tr>
-                               
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="user-ext">4003</td>
+                                  <td class="user-rol"><span>Reception</span></td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="user-ext">4003</td>
+                                  <td class="user-rol"><span>Reception</span></td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="user-ext">4003</td>
+                                  <td class="user-rol"><span>Reception</span></td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><input type="checkbox"></td>
+                                  <td class="user_profile-name">
+                                    <div class="user_profile-picture-table"></div>
+                                    <div class="user_data">
+                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                    </div>
+                                  </td>
+                                  <td class="user-ext">4003</td>
+                                  <td class="user-rol"><span>Reception</span></td>
+                                  <td class="date-added">2023-08-02</td>
+                                  <td class="last-activity">2023-08-01</td>
+                                  <td>
+                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                  </td>
+                                </tr>
                                 <!-- Agrega más filas según sea necesario -->
                               </tbody>
                             </table>
-                            <button id="scroll-button" class="scroll-button">
-                              <i class='bx bx-down-arrow-alt'></i>
-                            </button>
                         </div>
                     </div>
                 </div>

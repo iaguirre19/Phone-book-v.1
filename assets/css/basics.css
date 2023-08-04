@@ -16,18 +16,22 @@
   
   /* Subtitles color */
   --gray: #666666;
+  --subtitles: #666666;
   
   /* Regular text color */
   --gray-light: #999999;
+  --regular-text: #999999;
   
   /* Links color (not visited) */
   --blue: #007BFF;
   
   /* Links color (visited) */
   --blue-dark: #0056b3;
+  --blue-btn-color: #0056b3;
   
   /* Links color on hover */
   --blue-light: #1E90FF;
+  --blue-icons-white: #1E90FF;
   
   /* Primary buttons color (e.g., Create User, Save Information) */
   --green: #28a745;
@@ -46,9 +50,26 @@
 
   /* Borders color */
   --border-color: #d3d3d3;
-
+  
   /* scroll bar  */
   --scroll-bar-color: #d7eaff;
+  
+  /* label admin colors */
+    --border-admin-label: #3cae4b;
+    --backgroud-admin-label: #daf2dd;
+    --color-admin-label: #21612a;
+
+  /* label admin colors */
+    --border-reception-label: #1c77e4;
+    --backgroud-reception-label: #d9e8fa;
+    --color-reception-label: #0c3363;
+
+  /* btn new user */
+    --background-btn-hover: #e5f0fc;
+
+  /* Shadows material design */
+
+  --shadown-light-1:0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
 
     /* --base-color: #161819;
     --base-color-sub:#191919;
@@ -124,26 +145,7 @@ body{
     overflow: hidden;
     background-color: var(--black);
 }
-body.light-theme{
-    --text-color: #161819;
-    --body-light-color: #F5F7F9;
-    --background-cards-light:#EAEEF6;
-    --background-cards-main-light:#fff;
-    --secundary-color-sub: #fff;
-    --reslt-color: #aaaaaac3;
-    --link-color-sub:#007bff;
-    --subtext-color:#333;
-    --btns-color: #007bff;
-    --btns-hover-light:#fff;
-    --text-color-btns: #fff;
-    --background-message:#E6EFFC;
-    --background-inputs:#EAEEF6;
-    --box-shadow-ligth:0 2px 4px rgba(0, 0, 0, 0.1);
-    --box-shadow-card-light:0 2px 4px rgba(0, 0, 0, 0.1);
-    --box-shadow-card-light-midd:0 4px 8px rgba(0, 0, 0, 0.2);
-    --background-modal: rgba(0, 0, 0, 0.298);
-    --btn-modal:#007bff;
-}
+
 .icon{
     color: var(--white-sidebar-icons);
     font-size: 2rem;
@@ -159,14 +161,7 @@ img{
 ul{
     list-style: none;
 }
-.main{
-    width: 100%;
-    height: 100%;
-    border-radius: 1.6rem;
-    background-color: #fff;
-    padding: 2rem 2.6rem;
-    overflow: hidden;
-}
+
 #btns{
     padding: .6rem 4rem;
     border: none;
@@ -179,54 +174,54 @@ ul{
     cursor: pointer;
 }
 .btn-add{
-    padding: .4rem 1rem;
+    padding: 1.4rem 1.6rem;
+    background-color: transparent;
+    display: inline-block;
     border-radius: .8rem;
-    border: none;
+    color: var(--blue-btn-color);
+    border: 1px solid var(--border-color);
     font-size: 1.2rem;
-    box-shadow: var(--shadow-btn);
-    background-color: var(--green);
-    color: white;
     font-weight: bolder;
     cursor: pointer;
 }
 .btn-add:hover{
-    background-color: var(--green-dark);
-    transition: all .3s ease;
-    box-shadow: var(--shadow-btn-hover);
+    transition: all .3s ease-in;
+    border:solid 1px var(--blue-light) ;
+    background-color:var(--background-btn-hover) ;
+    box-shadow: var(--shadown-light-1);
 }
 .home_content{
     position: absolute;
     height: 100%;
     max-height: 100vh;
     width: calc(100% - 7.8rem);
-    padding: 3.2rem 2.4rem 3.2rem .8rem;
-    /* padding: 2.4rem; */
+    padding: 2.2rem 2.2rem 2.2rem .8rem;
     left: 7.2rem;
-    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 1.6rem;
+    background-color: #fff;
+    padding: 2rem 2.6rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 12px 6px rgba(0, 0, 0, 0.15); 
     overflow: hidden;
 }
-
-.sidebar.active ~ .home_content{
-    width: calc(100% - 250px);
-    left: 25rem;
-    /* z-index: -1; */
-}
-.dashboard,
-.directory,
-.offices,
-.managers{
-    position: absolute;
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2.6rem;
     height: 100%;
-    width: 100%;
-    top: 9.6rem;
-    left: 0
 }
 
 .dashboard,
 .directory,
 .managers,
 .offices{
-    /* background-color: var(--color-secondary-1); */
     opacity: 0;
     z-index: -1;
     display: none;

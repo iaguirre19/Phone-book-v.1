@@ -1,16 +1,37 @@
 .admin-tools{
     width: 100%;
-    height: 88%;
-    border-radius: 1.6rem;
-    /* overflow-y: scroll; */
+    height: 100%;
+    max-height: 100%;
+    z-index: 100;
+    overflow:auto ;
+}
+/* Estilos para el scroll vertical */
+.admin-tools::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-tools::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.admin-tools::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.admin-tools::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
 }
 .adminTools_container{
     height: 100%;
-    padding:3.2rem 0 1.6rem;
+    max-height: 800px;
+    padding:0 0 1.6rem;
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2.6rem;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1.2rem;
 }
+
 .adminTools_content-admin,
 .adminTools_content-users{
     width: 100%;
@@ -18,8 +39,19 @@
     grid-template-columns: 30% 67.4%;
     gap: 3.2rem;
 }
+.adminTools_content-admin{
+  position: relative;
+}
+.adminTools_content-divition{
+  width: 100%;
+  height: .1rem;
+  background-color: var(--border-color);
+  opacity: .5;
+
+}
 .adminTools_content-data{
-    width: 100%;
+    min-width: 10rem;
+    max-width: 30rem;
 }
 .adminTools_content-data-title{
     font-size:1.6rem;
@@ -31,12 +63,13 @@
 /* Estilos generales para el contenedor de la tabla */
 .adminTools_content-table-container {
   width: 98%;
-  max-height: 240px; /* Establece el tamaño máximo */
-  overflow-y: auto; /* Agrega scroll vertical solo si el contenido excede el tamaño máximo */
+  height: 29rem;
+  max-height: 30rem; 
+  overflow-y: auto; 
   border-radius: 1.2rem;
   border: solid .16rem var(--border-color);
   background-color: var(--background-sub);
-  position: relative; /* Agregamos esta propiedad para que el scroll sea visible */
+  position: relative; 
 }
 
 
@@ -56,12 +89,13 @@
   background-color: #f2f2f2;
   text-align: left;
   padding: 10px;
-  font-weight: bold;
+  font-weight: 600;
   border-bottom: 2px solid #ddd;
-  /* Hacer que el encabezado sea sticky */
+  font-size: 1.2rem;
   position: sticky;
   top: 0;
   z-index: 1;
+  color: var(--subtitles);
 }
 
 /* Estilos para las filas de la tabla */
@@ -73,6 +107,7 @@
 .adminTools_content-table-container tbody td {
   padding: 10px;
 }
+
 
 /* Estilos para el checkbox en las celdas */
 .adminTools_content-table-container tbody input[type="checkbox"] {
@@ -112,14 +147,39 @@
 .user_data-name {
   margin: 0;
   font-weight: bolder;
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .user_data-email {
   margin: 0;
-  color: #666;
+  color: var(--regular-text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.user-ext,
+.user-rol,
+.date-added,
+.last-activity{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--regular-text);
+}
+.user-ext{
+  color: #333;
+}
+.user-rol span{
+  border: .1rem solid #3cae4b;
+  padding: 0.4rem 1.2rem;;
+  border-radius: 0.8rem;
+  background-color: #daf2dd;
+  color: #21612a;
 }
 
+#tableBodyUser tr .user-rol span{
+  color: var(--color-reception-label);
+  background-color: var(--backgroud-reception-label);
+  border: .1rem solid var(--border-reception-label);
+}
 /* Estilos para los botones */
 .trash-button,
 .pencil-button {
@@ -130,9 +190,11 @@
   margin-right: 10px;
 }
 
-.trash-button:hover,
-.pencil-button:hover {
+.trash-button:hover{
   color: #e74c3c;
+}
+.pencil-button:hover {
+  color: var(--blue-icons-white);
 }
 
 /* Estilos para el scroll vertical */
@@ -161,28 +223,4 @@
   border-radius: 1.2rem;
   /* Ajustamos el tamaño de la tabla para evitar desbordamiento del scroll bar */
   padding: 5px 0; /* 5px de padding arriba y abajo */
-}
-
-/* Resto de los estilos se mantienen igual... */
-
-/* Estilos para el botón */
-.scroll-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px;
-  display: none; /* El botón estará oculto inicialmente */
-  z-index: 2; /* Asegura que el botón esté por encima de la tabla */
-}
-
-.scroll-button i {
-  color: #999;
-}
-
-.scroll-button.active i {
-  color: #333;
 }

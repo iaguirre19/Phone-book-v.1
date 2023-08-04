@@ -1,9 +1,11 @@
+.modals{
+  display: none;
+}
 .header{
-    height: 8rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    width: 100%;
+    height: 7.2rem;
     position: relative;
+    z-index: 200;
 }
 .header::before{
   content: "";
@@ -12,9 +14,15 @@
   background-color: var(--border-color);
   margin: 0 auto;
   position: absolute;
-  bottom: -.5rem;
+  bottom: 0rem;
   left: 50%;
   transform:translate(-50%, 50%) ;
+  z-index: 200;
+}
+.header_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
 }
 .header_left,
 .header_right{
@@ -34,7 +42,7 @@
 .header_left-data .bx-cog,
 .section-title{
   font-size: 2.8rem;
-  color: var(--base-color);
+  color: var(--gray-dark);
   font-weight: 500;
 }
 .header_left-data .bx-cog{
@@ -44,10 +52,9 @@
 }
 
 .header_description-title{
-  color: var(--subtext-color);
   font-size: 1.4rem;
   font-weight: 600;
-  opacity: .6;
+  color: var(--subtitles);
 }
 .header_right{
   justify-self: flex-end;
@@ -61,7 +68,11 @@
 }
 .header_right-btns{
   display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
   padding: 1rem;
+  column-gap: 1.6rem;
+
 }
 .header_rigth-user-profile{
   height: 100%;
@@ -96,11 +107,13 @@
   font-weight: 600;
   font-size: 1.4rem;
   width: max-content;
+  color: var(--gray-dark);
 }
 .user_profile-data-title .user-rol{
   font-weight: 600;
   opacity: .6;
   font-size: 1.2rem;
+  color: var(--subtitles);
 }
 .user_profile-data .bx-chevron-down{
   font-size: 2.6rem;
