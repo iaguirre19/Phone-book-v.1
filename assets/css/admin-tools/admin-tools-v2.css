@@ -25,11 +25,11 @@
 }
 .adminTools_container{
     height: 100%;
-    max-height: 800px;
+    max-height: 100vh;
     padding:0 0 1.6rem;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    row-gap: 1.2rem;
+    grid-template-rows: minmax(320px, 350px) minmax(320px, 350px);
+    row-gap: 1.6rem;
 }
 
 .adminTools_content-admin,
@@ -41,13 +41,10 @@
 }
 .adminTools_content-admin{
   position: relative;
+  border-bottom: .1rem solid var(--border-color);
 }
-.adminTools_content-divition{
-  width: 100%;
-  height: .1rem;
-  background-color: var(--border-color);
-  opacity: .5;
-
+.adminTools_content-users{
+  margin-top: 1.4rem;
 }
 .adminTools_content-data{
     min-width: 10rem;
@@ -63,8 +60,8 @@
 /* Estilos generales para el contenedor de la tabla */
 .adminTools_content-table-container {
   width: 98%;
-  height: 29rem;
-  max-height: 30rem; 
+  height: 100%;
+  max-height: 90%; 
   overflow-y: auto; 
   border-radius: 1.2rem;
   border: solid .16rem var(--border-color);
@@ -208,7 +205,7 @@
 }
 
 .adminTools_content-table-container::-webkit-scrollbar-thumb {
-  background-color: #bbb;
+  background-color: transparent;
   border-radius: 4px;
 }
 

@@ -113,24 +113,24 @@
 
 
 // Obtener elementos de la tabla y el botón
-const tableContainer = document.querySelector(".adminTools_content-table-container");
-const scrollButton = document.getElementById("scroll-button");
+// const tableContainer = document.querySelector(".adminTools_content-table-container");
+// const scrollButton = document.getElementById("scroll-button");
 
-// Mostrar el botón solo si hay scroll
-tableContainer.addEventListener("scroll", () => {
-  if (tableContainer.scrollHeight > tableContainer.clientHeight) {
-    scrollButton.style.display = "block";
-  } else {
-    scrollButton.style.display = "none";
-  }
-});
+// // Mostrar el botón solo si hay scroll
+// tableContainer.addEventListener("scroll", () => {
+//   if (tableContainer.scrollHeight > tableContainer.clientHeight) {
+//     scrollButton.style.display = "block";
+//   } else {
+//     scrollButton.style.display = "none";
+//   }
+// });
 
-// Scroll de un tr por tr al hacer clic en el botón
-scrollButton.addEventListener("click", () => {
-  tableContainer.scrollTop += tableContainer.clientHeight;
-});
+// // Scroll de un tr por tr al hacer clic en el botón
+// scrollButton.addEventListener("click", () => {
+//   tableContainer.scrollTop += tableContainer.clientHeight;
+// });
 
-// Ocultar el botón inicialmente si no hay scroll al cargar la página
-if (tableContainer.scrollHeight <= tableContainer.clientHeight) {
-  scrollButton.style.display = "none";
-}
+// // Ocultar el botón inicialmente si no hay scroll al cargar la página
+// if (tableContainer.scrollHeight <= tableContainer.clientHeight) {
+//   scrollButton.style.display = "none";
+// }

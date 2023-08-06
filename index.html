@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assets/css/basics.css">
     <link rel="stylesheet" href="../assets/css/sidebar/sidebar.css">
     <link rel="stylesheet" href="./assets/css/admin-tools/admin-tools-v2.css">
+    <link rel="stylesheet" href="./assets/css/generals/modals.css">
     <!-- <link rel="stylesheet" href="../assets/css/directory/directory.css"> -->
     <!-- <link rel="stylesheet" href="../assets/css/directory/directory-header.css"> -->
     <!-- <link rel="stylesheet" href="../assets/css/directory/directory-body.css"> -->
@@ -17,6 +18,7 @@
 
 </head>
 <body>
+    <div class="overlay" id="overlay"></div>
     <div class="sidebar">
         <div class="sidebar_header-logo">
             <div class="logo-content">
@@ -68,8 +70,119 @@
     </div>
     <div class="home_content">
         <main class="main">
-            <div class="modals">
-                <!-- Modal new admins or users -->
+            <div class="modals" id="modal">
+                <div class="modals_container">
+                    <!-- Modal new admins or users -->
+                    <!-- <div class="new_user-admins">
+                        <div class="new_user-content">
+                            <div class="content-img">
+                                <div class="input-container-profile">
+                                    <div class="input-content-profile">
+                                        <input class="input-file input-modal" type="file" name="profile-picture" id="profile-img" data-type="profilePicture">
+                                        <div class="input-cont-sub">
+                                            <span class="bx bx-camera"></span>
+                                        </div>
+                                        <img class="uploaded-image" id="profileImage" src="#" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_form">
+                                <form class="form" id="myForm">
+                                    <div class="form__field">
+                                        <label class="form__label" for="fullname">Full Name:</label>
+                                        <input class="form__input" type="text" id="fullname" name="fullname" required>
+                                    </div>
+                                    <div class="form__field">
+                                        <label class="form__label" for="extention">Extension:</label>
+                                        <input class="form__input" type="text" id="extention" name="extention" required>
+                                    </div>
+                                    <div class="form__field">
+                                        <label class="form__label" for="">Department:</label>
+                                        <input class="form__input" type="text" id="Department" name="departamento" required>
+                                    </div>
+                                    <div class="form__field">
+                                        <label class="form__label" for="rol">Role:</label>
+                                        <select class="form__select" id="rol" name="rol">
+                                            <option value="admin">Admin</option>
+                                            <option value="receptionist">Receptionist</option>
+                                        </select>
+                                    </div>
+                                    <div class="form__field">
+                                        <button class="form__button form__button--cancel" type="button" id="cancelButton">Cancel</button>
+                                        <button class="form__button form__button--save" type="submit" id="saveButton">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="add_newuser-modal">
+                                <div class="add_newuser-content">
+                                    <div class="content-img">
+                                        <div class="input-container-profile">
+                                            <div class="input-content-profile">
+                                                <input class="input-file input-modal" type="file" name="profile-picture" id="profile-img" data-type="profilePicture">
+                                                <div class="input-cont-sub">
+                                                    <span class="bx bx-camera"></span>
+                                                </div>
+                                                <img class="uploaded-image" id="profileImage" src="#" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="new_user-form">
+                                        <div class="form-content">
+                                            <label for="user">Full Name:</label>
+                                            <div class="input-container">
+                                                <input class="login-input input-modal" type="text" id="user" name="user" placeholder="Enter your full name" required data-type="fullName">
+                                                <span class="input-icon-left"><i class='bx bx-user'></i></span>
+                                                <!-- <p class="error-message"></p> -->
+                                            </div>
+                                        </div>
+                                        <div class="form-content">
+                                            <label for="email">Email:</label>
+                                            <div class="input-container">
+                                                <input class="login-input input-modal" type="email" id="email" name="email" placeholder="Enter your email" required data-type="email">
+                                                <span class="input-icon-left"><i class='bx bx-envelope'></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-content">
+                                            <label for="phone">Phone Number:</label>
+                                            <div class="input-container">
+                                                <input class="login-input input-modal" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required data-type="phoneNumber">
+                                                <span class="input-icon-left"><i class='bx bx-phone'></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-content">
+                                            <label for="job-title">Job Title:</label>
+                                            <div class="input-container">
+                                                <input class="login-input input-modal" type="text" id="job-title" name="job-title" placeholder="Enter your job title" required data-type="jobTitle">
+                                                <span class="input-icon-left"><i class='bx bx-briefcase'></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-content">
+                                            <label for="manager">Manager:</label>
+                                            <div class="input-container">
+                                                <input class="login-input input-modal" type="text" id="manager" name="manager" placeholder="Enter your manager's name" required data-type="manager">
+                                                <span class="input-icon-left"><i class='bx bx-user'></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-content">
+                                            <label for="office">Office:</label>
+                                            <div class="input-container">
+                                                <input class="login-input input-modal" type="text" id="office" name="office" placeholder="Enter the office" required data-type="office">
+                                                <span class="input-icon-left"><i class='bx bx-building'></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="input-content">
+                                            <div class="cancel">Cancel</div>
+                                            <button id="btnModalForm" type="submit">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+                </div>
                 
             </div>
             <header class="header">
@@ -95,7 +208,7 @@
                                         <i class='bx bx-chevron-down'></i>
                                     </div>
                                 </div>
-                                <button class="btn-add">
+                                <button class="btn-add" id="btnNewUserAdmins">
                                     Add new user
                                 </button>
                             </div>
@@ -602,9 +715,10 @@
     <script type="module" src="./assets/js/generals/authUser.js"></script>
     <script src="./assets/js/users/admin.js"></script>
     <script src="./assets/js/phone-book-app/generals/sidebar/directory.js"></script>
+    <script src="./assets/js/phone-book-app/generals/modals.js"></script>
     <!-- <script src="./assets/js/phone-book-app/generals/sidebar/navbar.js"></script> -->
     <script src="./assets/js/phone-book-app/generals/chnageTheme.js"></script>
-    <script src="./assets/js/phone-book-app/admin-tools/pagination-admin-tools.js"></script>
+    <!-- <script src="./assets/js/phone-book-app/admin-tools/pagination-admin-tools.js"></script> -->
     <!-- <script src="./assets/js/dashboard/validationModalForm.js"></scrip> -->
     <!-- <script src="./assets/js/dashboard/addNewUser.js" type="module"></script> -->
     <!-- <script src="./assets/js/detailCard.js"></script> -->
