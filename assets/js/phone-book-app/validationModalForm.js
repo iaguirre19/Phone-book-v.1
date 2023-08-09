@@ -5,7 +5,7 @@ const image = document.getElementById("profileImage");
 
 
 input.addEventListener("change", handleImageUpload);
-// This function upload the image that the user load before and show it in the top of the modal
+// this function displays the photo that was uploaded to the add new user form
 function handleImageUpload() {
     const file = input.files[0];
     if (file) {
@@ -25,6 +25,9 @@ inputsValidation.forEach((inputElement) => {
     if (inputElement.validity.valid) {
       toggleActiveClass(inputElement.parentElement, true);
       const errorProfile = document.querySelector(".profile_picture-error");
+
+
+
       if(errorProfile){
         errorProfile.style.display = "none";
       }
@@ -32,6 +35,7 @@ inputsValidation.forEach((inputElement) => {
     } else {
       toggleActiveClass(inputElement.parentElement, false);
       createErrorMessage(inputElement, validate(inputElement));
+      injectErrorIcon(inputElement)
     }
   });
 });
@@ -56,6 +60,17 @@ function createErrorMessage(input, message) {
     }
 }
 
+function injectErrorIcon(element) {
+
+  const iconElement = document.createElement("i");
+  iconElement.className = "bx bx-error-circle";
+  const spanElement = document.createElement("span");
+  spanElement.className = "input-icon-right"
+  spanElement.appendChild(iconElement);
+  const parentElement = element.parentNode;
+  parentElement.insertBefore(spanElement, element);
+  return spanElement;
+}
 
 function removeErrorMessage(input) {
     const errorMessage = input.parentElement.querySelector(".error-input-invalid");
@@ -78,9 +93,9 @@ function validate(input) {
 const validateMessage = {
     fullName: "Please enter your full name.",
     email: "Please enter a valid email address.",
-    phoneNumber: "Please enter a valid phone number.",
+    phoneNumber: "Please enter a valid Ext.",
     jobTitle: "Please enter a valid job title.",
-    manager: "Please enter the name of your manager.",
+    manager: "Manager name's required",
     office: "Please enter a valid office.",
 };
 

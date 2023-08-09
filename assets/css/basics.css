@@ -13,17 +13,20 @@
   
   /* Main titles color */
   --gray-dark: #333333;
+  --titles: #333333;
   
   /* Subtitles color */
   --gray: #666666;
   --subtitles: #666666;
+  --inp-placeholder-modal: #666666;
+  --icon-pagination: #6f6e6e;
   
   /* Regular text color */
   --gray-light: #999999;
   --regular-text: #999999;
   
   /* Links color (not visited) */
-  --blue: #007BFF;
+  --outline-input-modals: #007BFF;
   
   /* Links color (visited) */
   --blue-dark: #0056b3;
@@ -54,62 +57,123 @@
   /* scroll bar  */
   --scroll-bar-color: #d7eaff;
   
+  /* Validatio color */
+  --validation-c: #275e2d;
+  --backgroud-c: #daf2dd;
+  --border-c: #3cae4b;
+  
+  
+  --validation-e: #94090D;
+  --backgroud-e: #fbbcbe;
+  --border-e: #D40D12;
+
+  --validation-e: #E74C3C;
+  
   /* label admin colors */
     --border-admin-label: #3cae4b;
     --backgroud-admin-label: #daf2dd;
     --color-admin-label: #21612a;
 
-  /* label admin colors */
+    /* Filter */
+    --backgroud-filter-label: #d9e8fa;
+    --border-filter-label: #1c77e4;
+    --color-filter-label: #0c3363;
+    
+    /* label admin colors */
     --border-reception-label: #1c77e4;
     --backgroud-reception-label: #d9e8fa;
     --color-reception-label: #0c3363;
 
+    /* ====== Sales combination ========= */
+  --border-sales-label: #c3dae6;
+  --background-sales-label: #f4fbff;
+  --color-sales-label: #18506d;
+
+  --border-sales-label-light: #1c77e4;
+  --background-sales-label-light: #d9e8fa;
+  --color-sales-label-light: #0c3363;
+
+    /* ====== Agent combination ========= */
+  /* Agente - Dark */
+  --border-agent-label: #e6a3a3;
+  --background-agent-label: #fff4f4;
+  --color-agent-label: #8d4040;
+
+/* Agente - Light */
+  --border-agent-label-light: #e47272;
+  --background-agent-label-light: #fdeff0;
+  --color-agent-label-light: #a53b3b;
+
+
+    /* ====== uw combination ========= */
+  /* UW - Dark */
+  --border-uw-label: #a1e6bf;
+  --background-uw-label: #f1fff6;
+  --color-uw-label: #4d8d68;
+
+/* UW - Light */
+  --border-uw-label-light: #5ae694;
+  --background-uw-label-light: #e0ffe5;
+  --color-uw-label-light: #36884f;
+  
+
+ 
+
+    /* ====== NOC combination ========= */
+    /* NOC - Dark */
+  --border-noc-label: #c3a5e6;
+  --background-noc-label: #f8f2ff;
+  --color-noc-label: #725b8d;
+
+/* NOC - Light */
+  --border-noc-label-light: #a36fe6;
+  --background-noc-label-light: #f2e4ff;
+  --color-noc-label-light: #6b479e;
+
+    /* ====== regional combination ========= */
+    /* Regional - Dark */
+  --border-regional-label: #e6d4a3;
+  --background-regional-label: #fff9e7;
+  --color-regional-label: #8d763c;
+
+/* Regional - Light */
+  --border-regional-label-light: #e6be5c;
+  --background-regional-label-light: #fffae1;
+  --color-regional-label-light: #b68d38;
+
+    /* ====== it combination ========= */
+/* IT - Dark */
+  --border-it-label: #a5c7e6;
+  --background-it-label: #f1f8ff;
+  --color-it-label: #577d9e;
+
+/* IT - Light */
+  --border-it-label-light: #6ca9e6;
+  --background-it-label-light: #e1f3ff;
+  --color-it-label-light: #3f6c8e;
+
+
   /* btn new user */
-    --background-btn-hover: #e5f0fc;
+    --background-btn-hover: #005ce6;
 
   /* Shadows material design */
 
   --shadown-light-1:0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
 
-    /* --base-color: #161819;
-    --base-color-sub:#191919;
-    --text-color: #FFFFFF;
-    --text-color-sidebar:#FFFFFF; 
-    --secunday-color: #1F2125;
-    --secundary-color-sub: #1F2125;
-    --subtext-color: #cacaca;
-    --btns-color: #926FED;
-    --reslt-color:#4C4C4C;
-    --link-color:#6A9EDC;
-    --link-color-sub:#fff;
-    --background-inputs:#fff;
-    --background-icons-link:#926FED;
-    --btn-modal:#926FED;
-    --background-links:#393A3E;
-    --background-cards-container:#181A1E;
-    --background-elements: #292929;
-    --background-message:#214c6c85;
-    --hover-color:#926FED;
-    --hover-color-btns:#392396;
-    --validation-color:RGB(153, 255, 153);
-    --color-error:#DC0000;
-    --color-icon-1: #99e5db;
-    --color-icon-sub: #009984;
-    --color-icon-2: #ffa966;
-    --color-icon-2sub: #ff6f00;
-    --color-icon-3: #ffe066;
-    --color-icon-3sub: #cca300;
-    --color-icon-4: #ff829a;
-    --color-icon-4sub: #ff4c6f;
-    --background-modal: rgba(166, 166, 166, 0.298); */
-    /* Fonts */
-    --main-title-size: 42px;
-    --subtitles-size: 28px;
-    --paragraphs-size: 20px;
-    --links-size: 18px;
-    --section-headers-size: 32px;
-    --sub-headers-size: 18px;
-    --size-icons-cards: 24px;
+
+    --headline: 3.4rem;
+    --subtitle: 1.6rem;
+    --headline-2: 2.0rem;
+    --subtitle-2: 1.4rem;
+    --table-header: 1.2rem;
+    --table-row-name: 1.2rem;
+    --table-row-name-email: 1rem;
+    --table-row-font-size: 1.2rem;
+    --btn-font-size:1.4rem; 
+    
+
+
+
 
     --shadow-cards: 0 24px 24px -16px rgba(0, 0, 0, 0.6);
     --shadow-cards-small: 0 20px 20px -14px rgba(0, 0, 0, 0.6);
@@ -173,22 +237,34 @@ ul{
     box-shadow: var(--shadow-btn);
     cursor: pointer;
 }
-.btn-add{
-    padding: 1.4rem 1.6rem;
+.btn-modals{
+    padding: 1rem 0;
     background-color: transparent;
-    display: inline-block;
     border-radius: .8rem;
     color: var(--blue-btn-color);
     border: 1px solid var(--border-color);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bolder;
     cursor: pointer;
+    width: 100%;
 }
-.btn-add:hover{
-    transition: all .3s ease-in;
-    border:solid 1px var(--blue-light) ;
-    background-color:var(--background-btn-hover) ;
-    box-shadow: var(--shadown-light-1);
+.btn-add{
+    padding: 1rem 1.6rem;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    column-gap: .8rem;
+    border-radius: .8rem;
+    font-size: var(--btn-font-size);
+    font-weight: bolder;
+    cursor: pointer;
+    border:none;
+    background-color:var(--background-btn-hover);
+    color: white;
+}
+.plus-btn{
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 .home_content{
     position: absolute;
@@ -211,10 +287,7 @@ ul{
     overflow: hidden;
 }
 .main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 2.8rem;
+    
     height: 100%;
     position: relative;
 }
@@ -222,10 +295,11 @@ ul{
 .dashboard,
 .directory,
 .managers,
-.offices{
-    opacity: 0;
-    z-index: -1;
+.offices,
+.admin-tools{
     display: none;
+    opacity: 0;
+    transition: all .3s ease-in-out;
 }
 .directory{
     background-color: var(--secunday-color);
@@ -254,7 +328,9 @@ body.light-theme .directory{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Color negro semitransparente */
-    z-index: 250;
+    z-index: 120;
     display: none; /* Inicialmente oculto */
 
   }
+
+

@@ -195,3 +195,135 @@ body.light-theme .card_profile:hover{
     height: 100%;
 }
 
+
+
+
+
+
+
+/* Estilos para las filas de la tabla */
+.adminTools_content-table-container tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para las celdas de la tabla */
+.adminTools_content-table-container tbody td {
+  padding: 10px;
+}
+
+
+/* Estilos para el checkbox en las celdas */
+.adminTools_content-table-container tbody input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.adminTools_content-table-container tbody tr {
+  background-color: #ffff;
+}
+
+.adminTools_content-table-container tbody tr:hover {
+  background-color: #eaf2ff;
+}
+
+
+.user_profile-name {
+  display: flex;
+  align-items: center;
+  column-gap: .8rem;
+}
+
+/* Estilos para la imagen en la celda */
+.user_profile-picture-table {
+  width: 40px;
+  height: 40px;
+  background: url(../../img/profile-picture/aiony-haust-3TLl_97HNJo-unsplash\ \(1\).jpg) center center / cover no-repeat;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Estilos para los datos de usuario (nombre y correo) */
+.user_data {
+  display: inline-block;
+}
+
+.user_data-name {
+  margin: 0;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.user_data-email {
+  margin: 0;
+  color: var(--regular-text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.user-ext,
+.user-rol,
+.date-added,
+.last-activity{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--regular-text);
+}
+.user-ext{
+  color: #333;
+}
+.user-rol span{
+  border: .1rem solid #3cae4b;
+  padding: 0.4rem 1.2rem;;
+  border-radius: 0.8rem;
+  background-color: #daf2dd;
+  color: #21612a;
+}
+
+#tableBodyUser tr .user-rol span{
+  color: var(--color-reception-label);
+  background-color: var(--backgroud-reception-label);
+  border: .1rem solid var(--border-reception-label);
+}
+/* Estilos para los botones */
+.trash-button,
+.pencil-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.trash-button:hover{
+  color: #e74c3c;
+}
+.pencil-button:hover {
+  color: var(--blue-icons-white);
+}
+
+/* Estilos para el scroll vertical */
+.adminTools_content-table-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.adminTools_content-table-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.adminTools_content-table-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.adminTools_content-table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+/* Estilos para la tabla interna */
+.adminTools_content-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1.2rem;
+  /* Ajustamos el tamaño de la tabla para evitar desbordamiento del scroll bar */
+  padding: 5px 0; /* 5px de padding arriba y abajo */
+}

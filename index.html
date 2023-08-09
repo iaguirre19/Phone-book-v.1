@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="../assets/css/sidebar/sidebar.css">
     <link rel="stylesheet" href="./assets/css/admin-tools/admin-tools-v2.css">
     <link rel="stylesheet" href="./assets/css/generals/modals.css">
-    <!-- <link rel="stylesheet" href="../assets/css/directory/directory.css"> -->
+    <link rel="stylesheet" href="./assets/css/directory/directory-main.css">
+    <link rel="stylesheet" href="./assets/css/generals/search-section.css">
+    <link rel="stylesheet" href="./assets/css/generals/paginator.css">
     <!-- <link rel="stylesheet" href="../assets/css/directory/directory-header.css"> -->
     <!-- <link rel="stylesheet" href="../assets/css/directory/directory-body.css"> -->
     <!-- <link rel="stylesheet" href="../assets/css/directory/card-detail.css"> -->
@@ -40,13 +42,13 @@
                 </a>
                 <span class="tooltip">Directory</span>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#offices">
                     <i class='bx bx-buildings icon' ></i>
                     <span class="links_name">Offices</span>
                 </a>
                 <span class="tooltip">Offices</span>
-            </li>
+            </li> -->
             <li>
                 <a href="#managers">
                     <i class='bx bx-user icon'></i>
@@ -55,7 +57,7 @@
                 <span class="tooltip">Managers</span>
             </li>
             <li>
-                <a href="#createUser">
+                <a href="#adminSettings">
                     <i class='bx bx-cog icon'></i>
                     <span class="links_name">Admin Settings</span>
                 </a>
@@ -73,8 +75,8 @@
             <div class="modals" id="modal">
                 <div class="modals_container">
                     <!-- Modal new admins or users -->
-                    <!-- <div class="new_user-admins">
-                        <div class="new_user-content">
+                    <div class="add_newuser-modal">
+                        <div class="add_newuser-content">
                             <div class="content-img">
                                 <div class="input-container-profile">
                                     <div class="input-content-profile">
@@ -86,117 +88,406 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content_form">
-                                <form class="form" id="myForm">
-                                    <div class="form__field">
-                                        <label class="form__label" for="fullname">Full Name:</label>
-                                        <input class="form__input" type="text" id="fullname" name="fullname" required>
+                            <form class="new_user-form">
+                                <div class="form-content">
+                                    <label for="user">Full Name:</label>
+                                    <div class="input-container">
+                                        <input class="login-input input-modal" type="text" id="user" name="user" placeholder="Enter your full name" required data-type="fullName">
+                                        <span class="input-icon-left"><i class='bx bx-user'></i></span>
+                                        <!-- <p class="error-message"></p> -->
                                     </div>
-                                    <div class="form__field">
-                                        <label class="form__label" for="extention">Extension:</label>
-                                        <input class="form__input" type="text" id="extention" name="extention" required>
-                                    </div>
-                                    <div class="form__field">
-                                        <label class="form__label" for="">Department:</label>
-                                        <input class="form__input" type="text" id="Department" name="departamento" required>
-                                    </div>
-                                    <div class="form__field">
-                                        <label class="form__label" for="rol">Role:</label>
-                                        <select class="form__select" id="rol" name="rol">
-                                            <option value="admin">Admin</option>
-                                            <option value="receptionist">Receptionist</option>
-                                        </select>
-                                    </div>
-                                    <div class="form__field">
-                                        <button class="form__button form__button--cancel" type="button" id="cancelButton">Cancel</button>
-                                        <button class="form__button form__button--save" type="submit" id="saveButton">Save</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="add_newuser-modal">
-                                <div class="add_newuser-content">
-                                    <div class="content-img">
-                                        <div class="input-container-profile">
-                                            <div class="input-content-profile">
-                                                <input class="input-file input-modal" type="file" name="profile-picture" id="profile-img" data-type="profilePicture">
-                                                <div class="input-cont-sub">
-                                                    <span class="bx bx-camera"></span>
-                                                </div>
-                                                <img class="uploaded-image" id="profileImage" src="#" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <form class="new_user-form">
-                                        <div class="form-content">
-                                            <label for="user">Full Name:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="user" name="user" placeholder="Enter your full name" required data-type="fullName">
-                                                <span class="input-icon-left"><i class='bx bx-user'></i></span>
-                                                <!-- <p class="error-message"></p> -->
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="email">Email:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="email" id="email" name="email" placeholder="Enter your email" required data-type="email">
-                                                <span class="input-icon-left"><i class='bx bx-envelope'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="phone">Phone Number:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required data-type="phoneNumber">
-                                                <span class="input-icon-left"><i class='bx bx-phone'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="job-title">Job Title:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="job-title" name="job-title" placeholder="Enter your job title" required data-type="jobTitle">
-                                                <span class="input-icon-left"><i class='bx bx-briefcase'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="manager">Manager:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="manager" name="manager" placeholder="Enter your manager's name" required data-type="manager">
-                                                <span class="input-icon-left"><i class='bx bx-user'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="office">Office:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="office" name="office" placeholder="Enter the office" required data-type="office">
-                                                <span class="input-icon-left"><i class='bx bx-building'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="input-content">
-                                            <div class="cancel">Cancel</div>
-                                            <button id="btnModalForm" type="submit">Save</button>
-                                        </div>
-                                    </form>
                                 </div>
-                            </div>
-
-
-
+                                <div class="form-content">
+                                    <label for="email">Email:</label>
+                                    <div class="input-container">
+                                        <input class="login-input input-modal" type="email" id="email" name="email" placeholder="Enter your email" required data-type="email">
+                                        <span class="input-icon-left"><i class='bx bx-envelope'></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-content">
+                                    <label for="ext">Extension number:</label>
+                                    <div class="input-container">
+                                        <input class="login-input input-modal" type="tel" id="ext" name="ext" placeholder="Enter the extension number" required data-type="phoneNumber">
+                                        <span class="input-icon-left"><i class='bx bx-phone'></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-content">
+                                    <label for="user-type">User Type:</label>
+                                    <div class="input-container">
+                                        <select class="login-input input-modal custom-select" id="user-type" name="user-type" required data-type="userType">
+                                            <option value="" disabled selected>Select Type</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="reception">Reception</option>
+                                        </select>
+                                        <span class="input-icon-left"><i class='bx bx-user'></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-content">
+                                    <label for="manager">Manager:</label>
+                                    <div class="input-container">
+                                        <input class="login-input input-modal" type="text" id="manager" name="manager" placeholder="Enter your manager's name" required data-type="manager">
+                                        <span class="input-icon-left"><i class='bx bx-user'></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-content">
+                                    <label for="office">Office:</label>
+                                    <div class="input-container">
+                                        <input class="login-input input-modal" type="text" id="office" name="office" placeholder="Enter the office" required data-type="office">
+                                        <span class="input-icon-left"><i class='bx bx-building'></i></span>
+                                    </div>
+                                </div>
+                                <div class="input-content">
+                                    <button class="btn-modals btn-cancel" id="btnModalFormCancel">Cancel</button>
+                                    <button class="btn-modals btn-save" id="btnModalFormSave" type="submit"><i class='bx bx-save'></i><span>Save</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 
             </div>
-            <header class="header">
-                <div class="header_container">
-                    <div class="header_left">
-                        <div class="header_left-data">
-                            <i class='bx bx-cog'></i>
+            
+            <!--========================= Dashboard========================-->
+            <section id="dashboard" class="dashboard section">
+                <header class="header">
+                    <div class="header_container">
+                        <div class="header_left">
+                            <div class="header_left-data" id="dashboardTitle">
+                            <i class='bx bx-grid-alt'></i>
                             <div class="header_title">
-                                <h2 class="section-title" id="sectionName">Admin Settings</h2>
-                                <span class="header_description-title">Manage your team members and their account permissions here.</span>
+                                <h2 class="section-title" id="sectionName">Dashboard</h2>
+                                <span class="header_description-title">Visualize data and key metrics through an interactive dashboard.</span>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="header_right">
+                            <div class="header_right-btns">
+                                <div class="header_rigth-user-profile">
+                                    <div class="user_profile-picture"></div>
+                                    <div class="user_profile-data">
+                                        <div class="user_profile-data-title">
+                                            <span class="user-name" id="userName">Anna Jhonson</span>
+                                            <span class="user-rol" id="rolProfile">Admin</span>
+                                        </div>
+                                        <i class='bx bx-chevron-down'></i>
+                                    </div>
+                                </div>
+                                <!-- <button class="btn-add" id="btnNewUserAdmins">
+                                    Add new user
+                                </button> -->
                             </div>
                         </div>
                     </div>
-                    <div class="header_right">
+                </header>
+            </section>
+            <!--========================== Directory ====================== -->
+            <section id="directory" class="directory section">
+                <header class="header">
+                    <div class="header_container">
+                        <div class="header_left">
+                            <div class="header_left-data" id="directoryTitle">
+                                <i class='bx bx-book-content'></i>
+                                <div class="header_title">
+                                    <h2 class="section-title" id="sectionName">Directory</h2>
+                                    <span class="header_description-title">Access a directory of team members, their roles, and contacts.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header_right">
+                            <div class="header_right-btns">
+                                <div class="header_rigth-user-profile">
+                                    <div class="user_profile-picture"></div>
+                                    <div class="user_profile-data">
+                                        <div class="user_profile-data-title">
+                                            <span class="user-name" id="userName">Anna Jhonson</span>
+                                            <span class="user-rol" id="rolProfile">Admin</span>
+                                        </div>
+                                        <i class='bx bx-chevron-down'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="search-bar">
+                    <div class="search-content">
+                        <div class="search-container">
+                          <i class="bx bx-search"></i>
+                          <input type="text" placeholder="Search" class="search-input">
+                        </div>
+                        <div class="filter-container">
+                            <div class="filter-dropdown" id="filterDropdown">
+                                <button class="filter-button">
+                                  <span class="filter-button-text">Filter</span>
+                                  <i class="bx bx-filter"></i>
+                                </button>
+                                <div class="filter-options">
+                                  <p>Filtrar por:</p>
+                                  <ul>
+                                    <li><a href="#"><i class="bx bx-building"></i> Department</a></li>
+                                    <li><a href="#"><i class="bx bx-briefcase"></i> Position</a></li>
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-add" id="btnNewUserDirectory">
+                        <i class='bx bx-plus plus-btn'></i>
+                      Add new user
+                    </button>
+                </div>
+                <div class="adminTools_content-table-container table-directory">
+                    <table>
+                        <!-- Encabezado de la tabla -->
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Phone Number</th>
+                                <th>Ext. Number</th>
+                                <th>Office</th>
+                                <th>Working Hours</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyadmin">
+                          <tr>
+                              <td><input type="checkbox"></td>
+                              <td class="user_profile-name">
+                                  <div class="user_profile-picture-table"></div>
+                                  <div class="user_data">
+                                    <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                    <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                  </div>
+                              </td>
+                              <td class="user_position sales-position"><span>Sales Manager</span></td>
+                              <td class="user_department sales-department" ><span>Sales</span></td>
+                              <td class="user_phone">123-456-7890</td>
+                              <td class="user_extension">123</td>
+                              <td class="user_office">Rio Alto</td>
+                              <td class="user_working-hours">9:00 AM - 5:00 PM</td>
+                              <td>
+                                  <button class="pencil-button"><i class='bx bx-phone'></i></button>
+                              <button class="trash-button"><i class='bx bx-trash'></i></button>
+                              <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                              </td>
+                          </tr>
+                          
+                            <tr>
+                              <td><input type="checkbox"></td>
+                              <td class="user_profile-name">
+                                <div class="user_profile-picture-table"></div>
+                                <div class="user_data">
+                                  <h5 class="user_data-name" id="nameTable">John Smith</h5>
+                                  <span class="user_data-email" id="emailTable">john.smith@agibusinessgroup.com</span>
+                                </div>
+                              </td>
+                              <td class="user_position uw-position"><span>Underwriter</span></td>
+                              <td class="user_department uw-department"><span>Underwriting</span></td>
+                              <td class="user_phone">987-654-3210</td>
+                              <td class="user_extension">456</td>
+                              <td class="user_office">Downtown Office</td>
+                              <td class="user_working-hours">8:30 AM - 4:30 PM</td>
+                              <td>
+                                <button class="pencil-button"><i class='bx bx-phone'></i></button>
+                                <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input type="checkbox"></td>
+                              <td class="user_profile-name">
+                                <div class="user_profile-picture-table"></div>
+                                <div class="user_data">
+                                  <h5 class="user_data-name" id="nameTable">Michael Brown</h5>
+                                  <span class="user_data-email" id="emailTable">michael.brown@agibusinessgroup.com</span>
+                                </div>
+                              </td>
+                              <td class="user_position it-position"><span>IT Specialist</span></td>
+                              <td class="user_department it-department"><span>IT</span></td>
+                              <td class="user_phone">555-555-5555</td>
+                              <td class="user_extension">567</td>
+                              <td class="user_office">Tech Hub</td>
+                              <td class="user_working-hours">8:00 AM - 5:00 PM</td>
+                              <td>
+                                <button class="pencil-button"><i class='bx bx-phone'></i></button>
+                                <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input type="checkbox"></td>
+                              <td class="user_profile-name">
+                                <div class="user_profile-picture-table"></div>
+                                <div class="user_data">
+                                  <h5 class="user_data-name" id="nameTable">Alex Carter</h5>
+                                  <span class="user_data-email" id="emailTable">alex.carter@agibusinessgroup.com</span>
+                                </div>
+                              </td>
+                              <td class="user_position noc-position"><span>NOC Analyst</span></td>
+                              <td class="user_department noc-department"><span>NOC</span></td>
+                              <td class="user_phone">555-987-6543</td>
+                              <td class="user_extension">234</td>
+                              <td class="user_office">Tech Center</td>
+                              <td class="user_working-hours">24/7</td>
+                              <td>
+                                <button class="pencil-button"><i class='bx bx-phone'></i></button>
+                                <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><input type="checkbox"></td>
+                              <td class="user_profile-name">
+                                <div class="user_profile-picture-table"></div>
+                                <div class="user_data">
+                                  <h5 class="user_data-name" id="nameTable">Emily Johnson</h5>
+                                  <span class="user_data-email" id="emailTable">emily.johnson@agibusinessgroup.com</span>
+                                </div>
+                              </td>
+                              <td class="user_position regional-position"><span>Regional Manager</span></td>
+                              <td class="user_department regional-department"><span>Regional</span></td>
+                              <td class="user_phone">555-123-4567</td>
+                              <td class="user_extension">789</td>
+                              <td class="user_office">West Region</td>
+                              <td class="user_working-hours">9:00 AM - 6:00 PM</td>
+                              <td>
+                                <button class="pencil-button"><i class='bx bx-phone'></i></button>
+                                <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                              </td>
+                            </tr>
+                            <tr>
+  <td><input type="checkbox"></td>
+  <td class="user_profile-name">
+    <div class="user_profile-picture-table"></div>
+    <div class="user_data">
+      <h5 class="user_data-name" id="nameTable">James Miller</h5>
+      <span class="user_data-email" id="emailTable">james.miller@agibusinessgroup.com</span>
+    </div>
+  </td>
+  <td class="user_position agent-position"><span>Sales Rep</span></td>
+  <td class="user_department agent-department"><span>Sales</span></td>
+  <td class="user_phone">456-789-0123</td>
+  <td class="user_extension">456</td>
+  <td class="user_office">Downtown</td>
+  <td class="user_working-hours">10:00 AM - 6:00 PM</td>
+  <td>
+    <button class="pencil-button"><i class='bx bx-phone'></i></button>
+    <button class="trash-button"><i class='bx bx-trash'></i></button>
+    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+  </td>
+</tr>
+<tr>
+  <td><input type="checkbox"></td>
+  <td class="user_profile-name">
+    <div class="user_profile-picture-table"></div>
+    <div class="user_data">
+      <h5 class="user_data-name" id="nameTable">Jessica Adams</h5>
+      <span class="user_data-email" id="emailTable">jessica.adams@agibusinessgroup.com</span>
+    </div>
+  </td>
+  <td class="user_position uw-position"><span>UW Manager</span></td>
+  <td class="user_department uw-department"><span>Underwriting</span></td>
+  <td class="user_phone">789-012-3456</td>
+  <td class="user_extension">789</td>
+  <td class="user_office">Westside</td>
+  <td class="user_working-hours">9:30 AM - 5:30 PM</td>
+  <td>
+    <button class="pencil-button"><i class='bx bx-phone'></i></button>
+    <button class="trash-button"><i class='bx bx-trash'></i></button>
+    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+  </td>
+</tr>
+<tr>
+  <td><input type="checkbox"></td>
+  <td class="user_profile-name">
+    <div class="user_profile-picture-table"></div>
+    <div class="user_data">
+      <h5 class="user_data-name" id="nameTable">David Johnson</h5>
+      <span class="user_data-email" id="emailTable">david.johnson@agibusinessgroup.com</span>
+    </div>
+  </td>
+  <td class="user_position regional-position"><span>Regional Director</span></td>
+  <td class="user_department regional-department"><span>Regional</span></td>
+  <td class="user_phone">234-567-8901</td>
+  <td class="user_extension">123</td>
+  <td class="user_office">East Region</td>
+  <td class="user_working-hours">8:00 AM - 6:00 PM</td>
+  <td>
+    <button class="pencil-button"><i class='bx bx-phone'></i></button>
+    <button class="trash-button"><i class='bx bx-trash'></i></button>
+    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+  </td>
+</tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paginator">
+                    <div class="paginator-section left-section">
+                      <button class="pagination-button"><i class='bx bx-arrow-back'></i> Previous</button>
+                    </div>
+                    <div class="paginator-section center-section">
+                      <span class="page-number active">1</span>
+                      <span class="page-number">2</span>
+                      <span class="page-number">3</span>
+                      <!-- Agrega más números de página aquí -->
+                    </div>
+                    <div class="paginator-section right-section">
+                      <button class="pagination-button">Next<i class='bx bx-right-arrow-alt'></i> </button>
+                    </div>
+                </div>
+            </section>
+            <!--========================== Managers ====================== -->
+            <section id="managers" class="managers section">
+                <header class="header">
+                    <div class="header_container">
+                        <div class="header_left">
+                            <div class="header_left-data" id="directoryTitle">
+                                <i class='bx bx-user icon'></i>
+                                <div class="header_title">
+                                    <h2 class="section-title" id="sectionName">Managers</h2>
+                                    <span class="header_description-title">View and manage information about your team's managers.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header_right">
+                            <div class="header_right-btns">
+                                <div class="header_rigth-user-profile">
+                                    <div class="user_profile-picture"></div>
+                                    <div class="user_profile-data">
+                                        <div class="user_profile-data-title">
+                                            <span class="user-name" id="userName">Anna Jhonson</span>
+                                            <span class="user-rol" id="rolProfile">Admin</span>
+                                        </div>
+                                        <i class='bx bx-chevron-down'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
+            <!--========================== admin tools ====================== -->
+
+            <section id="adminSettings" class="admin-tools section">
+                <header class="header">
+                    <div class="header_container">
+                        <div class="header_left">
+                            <div class="header_left-data" id="adminTitle">
+                                <i class='bx bx-cog'></i>
+                                <div class="header_title">
+                                    <h2 class="section-title" id="sectionName">Admin Settings</h2>
+                                    <span class="header_description-title">Manage your team members and their account permissions here.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header_right">
                             <div class="header_right-btns">
                                 <div class="header_rigth-user-profile">
                                     <div class="user_profile-picture"></div>
@@ -212,498 +503,228 @@
                                     Add new user
                                 </button>
                             </div>
-                    </div>
-                </div>
-            </header>
-            <section id="dashboard" class="dashboard">
-            </section>
-            <section id="directory" class="directory">
-                <div class="background-modal"></div>
-                <div class="directory_container">
-                    <div class="directory_content">
-                        <div class="directory_content-header">
-                            <div class="content_img">
-                                <img class="logo_dark-mode logo_dashboard" src="../assets/img/logos/agi-business_logo_blanco.png" alt="agi img" width="30px">
-                                <img class="logo_light-mode logo_dashboard" src="../assets/img/logos/agi-blue-logo.webp" alt="agi img" width="30px">
-                                <span>Directory</span>
-                            </div>
-                            <div class="content_search-bar">
-                                <div class="search_bar-container">
-                                    <i class='bx bx-search search-icon' ></i>
-                                    <input id="searchBar" type="text" placeholder="Search...">
-                                </div>
-                            </div>
-                            <div class="content_add">
-                                <div class="add_circle-container">
-                                    <span class="tooltip-heade">Add new user</span>
-                                    <i class='bx bx-plus'></i>
-                                </div>
-                            </div>
-                            <i class='bx bx-sun change-theme' id="theme-button"></i>
-                            <div class="add_newuser-modal">
-                                <div class="add_newuser-content">
-                                    <div class="content-img">
-                                        <div class="input-container-profile">
-                                            <div class="input-content-profile">
-                                                <input class="input-file input-modal" type="file" name="profile-picture" id="profile-img" data-type="profilePicture">
-                                                <div class="input-cont-sub">
-                                                    <span class="bx bx-camera"></span>
-                                                </div>
-                                                <img class="uploaded-image" id="profileImage" src="#" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <form class="new_user-form">
-                                        <div class="form-content">
-                                            <label for="user">Full Name:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="user" name="user" placeholder="Enter your full name" required data-type="fullName">
-                                                <span class="input-icon-left"><i class='bx bx-user'></i></span>
-                                                <!-- <p class="error-message"></p> -->
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="email">Email:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="email" id="email" name="email" placeholder="Enter your email" required data-type="email">
-                                                <span class="input-icon-left"><i class='bx bx-envelope'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="phone">Phone Number:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required data-type="phoneNumber">
-                                                <span class="input-icon-left"><i class='bx bx-phone'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="job-title">Job Title:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="job-title" name="job-title" placeholder="Enter your job title" required data-type="jobTitle">
-                                                <span class="input-icon-left"><i class='bx bx-briefcase'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="manager">Manager:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="manager" name="manager" placeholder="Enter your manager's name" required data-type="manager">
-                                                <span class="input-icon-left"><i class='bx bx-user'></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-content">
-                                            <label for="office">Office:</label>
-                                            <div class="input-container">
-                                                <input class="login-input input-modal" type="text" id="office" name="office" placeholder="Enter the office" required data-type="office">
-                                                <span class="input-icon-left"><i class='bx bx-building'></i></span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-content">
-                                            <label for="noteArea">Note</label>
-                                            <textarea class="text_are-modale input-modal" name="note" id="messages" cols="20" rows="6" placeholder="Type a note please..." data-type="messages"></textarea>
-                                        </div>
-                                        <div class="input-content">
-                                            <div class="cancel">Cancel</div>
-                                            <button id="btnModalForm" type="submit">Save</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="directory_content-body">
-                            <div class="container_cards-data">
-                                <div class="content_card">
-                                    <div class="content_card-header">
-                                        <span><i class='bx bx-user'></i></span>
-                                        <h5>Total Employees</h5>
-                                    </div>
-                                    <div class="content_card-data">
-                                        <p id="printData" class="data_number">1450</p>
-                                        <span>Workforce Snapshot</span>
-
-                                    </div>
-                                </div>
-                                <div class="content_card">
-                                    <div class="content_card-header">
-                                        <span><i class='bx bx-store'></i></span>
-                                        <h5>Office Count</h5>
-                                    </div>
-                                    <div class="content_card-data">
-                                        <p id="printData" class="data_number">33</p>
-                                        <span>Company's Locations</span>
-
-                                    </div>
-                                </div>
-                                <div class="content_card">
-                                    <div class="content_card-header">
-                                        <span><i class='bx bx-user'></i></span>
-                                        <h5>Manager Count</h5>
-                                    </div>
-                                    <div class="content_card-data">
-                                        <p id="printData" class="data_number">43</p>
-                                        <span>Experienced Leaders</span>
-
-                                    </div>
-                                </div>
-                                <div class="content_card">
-                                    <div class="content_card-header">
-                                        <span><i class='bx bx-buildings' ></i></span>
-                                        <h5>Office Headquarters</h5>
-                                    </div>
-                                    <div class="content_card-data">
-                                        <p id="printData" class="data_number">3</p>
-                                        <span>Centralized Headquarters</span>
-
-                                    </div>
-                                </div> 
-                            </div>
-                            <div class="container_card-directory">
-                                <div class="card_header">
-                                    <input class="check-box" type="checkbox" id="check" />
-                                    <h4 class="name">Name</h4>
-                                </div>
-                                <div id="profiles-container" class="card_content-directory"> 
-                                    <!-- here will contain all the user profiles list -->
-                                </div>
-                            </div>
-                            <div class="card_detail-container">
-                                <div class="card_detail-content">
-                                    <div class="card_contact-main">
-                                        <div class="contact_header">
-                                            <div class="header_img">
-                                                <img class="card-detail-img" src="" alt="img profila" width="20px">
-                                            </div>
-                                            <div class="header-info">
-                                                <div class="card_info-container">
-                                                    <h5 class="header_title-info"></h5>
-                                                    <div class="card-phone card-info">
-                                                        <i class='bx bx-phone'></i>
-                                                        <span class="phone-data"></span>
-                                                    </div>
-                                                    <div class="card-email card-info">
-                                                        <i class='bx bx-envelope'></i>
-                                                        <span class="email-data"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="header-icons">
-                                                <span class="icons_right-header">  
-                                                    <i class='bx bx-envelope'></i>
-                                                </span>
-                                                <span class="icons_right-header">  
-                                                    <i class='bx bx-phone' ></i>
-                                                </span>
-                                                <span id="btnDots" class="icons_right-header">  
-                                                    <i  class='bx bx-dots-horizontal-rounded'></i>
-                                                </span>
-                                                <div class="header_icons-dots">
-                                                    <div class="icons_dots-tooltip">
-                                                        <a href="#">
-                                                            <i class='bx bx-pencil'></i>
-                                                            <span>Edit</span>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class='bx bx-x'></i>
-                                                            <span>Delete</span>
-                                                        </a>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="contact_middle">
-                                            <div class="contact_middle-content">
-                                                <span>Job title</span>
-                                                <h3 class="job-data"></h3>
-                                            </div>
-                                            <div class="contact_middle-content">
-                                                <span>Manager</span>
-                                                <h3 class="manager-data"></h3>
-                                            </div>
-                                            <div class="contact_middle-content">
-                                                <span>Office</span>
-                                                <h3 class="office-data"></h3>
-                                            </div>
-                                        </div>
-                                        <div class="contact_footer">
-                                            <div class="contact_footer-container">
-                                                <div class="contact__title">
-                                                    <h3>Notes</h3>
-                                                    <div class="contact_title-icon">
-                                                        <i class='bx bx-plus'></i>
-                                                        <span>Add note</span>
-                                                    </div>
-                                                </div>
-                                                <div class="contact_textarea">
-                                                    <textarea class="contact_textarea-content" placeholder="Type your note"></textarea>
-                                                    <div class="contact_footer-btn">
-                                                        <div class="footer_btn">
-                                                            <div class="footer-icons">
-                                                                <i class='bx bx-align-left'></i>
-                                                                <i class='bx bx-align-middle' ></i>
-                                                                <i class='bx bx-align-right' ></i>
-                                                            </div>
-                                                            <div class="footer-links">
-                                                                <a  href="#">Cancel</a>
-                                                                <button>Add note</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card_notes-container">
-                                        <div class="card_notes-content">
-                                            <h4>Inbox</h4>
-                                            <div class="notes_cards">
-                                                <div class="card-container">
-                                                    <div class="notes_card-header">
-                                                        <div class="notes-header-left">
-                                                            <figure>
-                                                                <img src="https://image.tmdb.org/t/p/original/tCqjwlROe98wYbcRhCcp3qYsUc5.jpg" alt="img profile" width="50px">
-                                                            </figure>
-                                                            <div class="header_left-data">
-                                                                <h4 class="header_name">Michale Jordan</h4>
-                                                                <span class="header_rol">HR manager</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="notes_header-right">
-                                                            <!-- <span class="header_right-date">5/23/23</span> -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="notes_card-body">
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section id="offices" class="offices"></section>
-            <section id="managers" class="managers"></section>
-            <section id="adminTools" class="admin-tools">
-                <div class="adminTools_container">
-                    <div class="adminTools_content-admin">
-                        <div class="adminTools_content-data">
-                            <h4 class="adminTools_content-data-title">Admin users</h4>
-                            <p class="adminTools_content-data-description">Admins can add and remove users and manage organization-level settings</p>
+                </header>
+                <div class="body_content">
+                    <div class="adminTools_container">
+                        <div class="adminTools_content-admin">
+                            <div class="adminTools_content-data">
+                                <h4 class="adminTools_content-data-title">Admin users</h4>
+                                <p class="adminTools_content-data-description">Admins can add and remove users and manage organization-level settings</p>
+                            </div>
+                            <div class="adminTools_content-table-container">
+                                <table>
+                                  <!-- Encabezado de la tabla -->
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox"></th>
+                                      <th>Name</th>
+                                      <th>Ext</th>
+                                      <th>Rol</th>
+                                      <th >Date Added</th>
+                                      <th>Last Activity</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <!-- Cuerpo de la tabla -->
+                                  <tbody id="tableBodyadmin">
+                                    <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                          <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4003</td>
+                                      <td class="user-rol"><span>Admin</span></td>
+                                      <td class="date-added">2023-08-02</td>
+                                      <td class="last-activity">2023-08-01</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Sophia Williams</h5>
+                                          <span class="user_data-email" id="emailTable">sophia.williams@example.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4045</td>
+                                      <td class="user-rol"><span>Admin</span></td>
+                                      <td class="date-added">2023-08-04</td>
+                                      <td class="last-activity">2023-08-03</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Michael Johnson</h5>
+                                          <span class="user_data-email" id="emailTable">michael.johnson@example.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4038</td>
+                                      <td class="user-rol"><span>User</span></td>
+                                      <td class="date-added">2023-07-28</td>
+                                      <td class="last-activity">2023-07-27</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">John Doe</h5>
+                                          <span class="user_data-email" id="emailTable">john.doe@example.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4012</td>
+                                      <td class="user-rol"><span>User</span></td>
+                                      <td class="date-added">2023-08-03</td>
+                                      <td class="last-activity">2023-08-02</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+    
+                                    <!-- Agrega más filas según sea necesario -->
+                                  </tbody>
+                                </table>
+                            </div>
+    
                         </div>
-                        <div class="adminTools_content-table-container">
-                            <table>
-                              <!-- Encabezado de la tabla -->
-                              <thead>
-                                <tr>
-                                  <th><input type="checkbox"></th>
-                                  <th>Name</th>
-                                  <th>Ext</th>
-                                  <th>Rol</th>
-                                  <th >Date Added</th>
-                                  <th>Last Activity</th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <!-- Cuerpo de la tabla -->
-                              <tbody id="tableBodyadmin">
-                                <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4003</td>
-                                  <td class="user-rol"><span>Admin</span></td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td class="last-activity">2023-08-01</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Sophia Williams</h5>
-                                      <span class="user_data-email" id="emailTable">sophia.williams@example.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4045</td>
-                                  <td class="user-rol"><span>Admin</span></td>
-                                  <td class="date-added">2023-08-04</td>
-                                  <td class="last-activity">2023-08-03</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Michael Johnson</h5>
-                                      <span class="user_data-email" id="emailTable">michael.johnson@example.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4038</td>
-                                  <td class="user-rol"><span>User</span></td>
-                                  <td class="date-added">2023-07-28</td>
-                                  <td class="last-activity">2023-07-27</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">John Doe</h5>
-                                      <span class="user_data-email" id="emailTable">john.doe@example.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4012</td>
-                                  <td class="user-rol"><span>User</span></td>
-                                  <td class="date-added">2023-08-03</td>
-                                  <td class="last-activity">2023-08-02</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-
-                                <!-- Agrega más filas según sea necesario -->
-                              </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="adminTools_content-users">
-                        <div class="adminTools_content-data">
-                            <h4 class="adminTools_content-data-title">Account users</h4>
-                            <p class="adminTools_content-data-description">Admins can add and remove users and manage organization-level settings</p>
-                        </div>
-                        <div class="adminTools_content-table-container">
-                            <table>
-                              <!-- Encabezado de la tabla -->
-                              <thead>
-                                <tr>
-                                  <th><input type="checkbox"></th>
-                                  <th>Name</th>
-                                  <th>Ext</th>
-                                  <th>Rol</th>
-                                  <th >Date Added</th>
-                                  <th>Last Activity</th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <!-- Cuerpo de la tabla -->
-                              <tbody id="tableBodyUser">
-                                <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4003</td>
-                                  <td class="user-rol"><span>Reception</span></td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td class="last-activity">2023-08-01</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4003</td>
-                                  <td class="user-rol"><span>Reception</span></td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td class="last-activity">2023-08-01</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4003</td>
-                                  <td class="user-rol"><span>Reception</span></td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td class="last-activity">2023-08-01</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4003</td>
-                                  <td class="user-rol"><span>Reception</span></td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td class="last-activity">2023-08-01</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td><input type="checkbox"></td>
-                                  <td class="user_profile-name">
-                                    <div class="user_profile-picture-table"></div>
-                                    <div class="user_data">
-                                      <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
-                                      <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
-                                    </div>
-                                  </td>
-                                  <td class="user-ext">4003</td>
-                                  <td class="user-rol"><span>Reception</span></td>
-                                  <td class="date-added">2023-08-02</td>
-                                  <td class="last-activity">2023-08-01</td>
-                                  <td>
-                                    <button class="trash-button"><i class='bx bx-trash'></i></button>
-                                    <button class="pencil-button"><i class='bx bx-pencil'></i></button>
-                                  </td>
-                                </tr>
-                                <!-- Agrega más filas según sea necesario -->
-                              </tbody>
-                            </table>
+                        <div class="adminTools_content-users">
+                            <div class="adminTools_content-data">
+                                <h4 class="adminTools_content-data-title">Account users</h4>
+                                <p class="adminTools_content-data-description">Admins can add and remove users and manage organization-level settings</p>
+                            </div>
+                            <div class="adminTools_content-table-container">
+                                <table>
+                                  <!-- Encabezado de la tabla -->
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox"></th>
+                                      <th>Name</th>
+                                      <th>Ext</th>
+                                      <th>Rol</th>
+                                      <th >Date Added</th>
+                                      <th>Last Activity</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <!-- Cuerpo de la tabla -->
+                                  <tbody id="tableBodyUser">
+                                    <!-- Filas de la tabla (Aquí irían los datos dinámicos) -->
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                          <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4003</td>
+                                      <td class="user-rol"><span>Reception</span></td>
+                                      <td class="date-added">2023-08-02</td>
+                                      <td class="last-activity">2023-08-01</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                          <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4003</td>
+                                      <td class="user-rol"><span>Reception</span></td>
+                                      <td class="date-added">2023-08-02</td>
+                                      <td class="last-activity">2023-08-01</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                          <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4003</td>
+                                      <td class="user-rol"><span>Reception</span></td>
+                                      <td class="date-added">2023-08-02</td>
+                                      <td class="last-activity">2023-08-01</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                          <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4003</td>
+                                      <td class="user-rol"><span>Reception</span></td>
+                                      <td class="date-added">2023-08-02</td>
+                                      <td class="last-activity">2023-08-01</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="checkbox"></td>
+                                      <td class="user_profile-name">
+                                        <div class="user_profile-picture-table"></div>
+                                        <div class="user_data">
+                                          <h5 class="user_data-name" id="nameTable">Anne Wathsoon</h5>
+                                          <span class="user_data-email" id="emailTable">anne.wathsoon@agibussinesgroup.com</span>
+                                        </div>
+                                      </td>
+                                      <td class="user-ext">4003</td>
+                                      <td class="user-rol"><span>Reception</span></td>
+                                      <td class="date-added">2023-08-02</td>
+                                      <td class="last-activity">2023-08-01</td>
+                                      <td>
+                                        <button class="trash-button"><i class='bx bx-trash'></i></button>
+                                        <button class="pencil-button"><i class='bx bx-pencil'></i></button>
+                                      </td>
+                                    </tr>
+                                    <!-- Agrega más filas según sea necesario -->
+                                  </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -714,14 +735,22 @@
     <!-- <script src="./assets/js/phone-book-app/dashboard/graffic.js"></script> -->
     <script type="module" src="./assets/js/generals/authUser.js"></script>
     <script src="./assets/js/users/admin.js"></script>
-    <script src="./assets/js/phone-book-app/generals/sidebar/directory.js"></script>
+    <!-- <script src="./assets/js/phone-book-app/generals/sidebar/directory.js"></script> -->
     <script src="./assets/js/phone-book-app/generals/modals.js"></script>
     <!-- <script src="./assets/js/phone-book-app/generals/sidebar/navbar.js"></script> -->
-    <script src="./assets/js/phone-book-app/generals/chnageTheme.js"></script>
+    <!-- <script src="./assets/js/phone-book-app/generals/chnageTheme.js"></script> -->
     <!-- <script src="./assets/js/phone-book-app/admin-tools/pagination-admin-tools.js"></script> -->
     <!-- <script src="./assets/js/dashboard/validationModalForm.js"></scrip> -->
     <!-- <script src="./assets/js/dashboard/addNewUser.js" type="module"></script> -->
     <!-- <script src="./assets/js/detailCard.js"></script> -->
     <!-- <script src="../assets/js/conection.js"></script> -->
+
+
+
+        <!-- <script src="./assets/js/phone-book-app/generals/links-content.js"></script> -->
+        <script type="module" src="./assets/js/phone-book-app/generals/sidebar/links-sidebar.js"></script>
+        <script src="./assets/js/phone-book-app/validationModalForm.js"></script>
+        <script src="./assets/js/phone-book-app/generals/filterby.js"></script>
+
 </body>
 </html>

@@ -128,7 +128,7 @@
 }
 .sidebar ul li .tooltip{
     position: absolute;
-    left: 6.5rem;
+    left: 7.2rem;
     top: 0;
     transform: translateY(-50%, 50% );
     border-radius: .6rem;
@@ -142,18 +142,13 @@
     transition: 0s;
     opacity:0;
     pointer-events: none;
+    z-index: 320;
 }
-body.light-theme .sidebar ul li .tooltip{
-    background-color: var(--black);
-    color: var(--text-color-sidebar);
-}
-/* .sidebar.active ul li .tooltip{
-    display: none;Cuando se activa el boton se oculta el submenu
-} */
 .sidebar ul li:hover .tooltip{
     transition: all 0.5s ease;
     opacity: 1;
     top: 50%;
+    z-index: 400;
 }
 .sidebar ul li span{
     font-size: 1.4rem;
@@ -190,13 +185,11 @@ body.light-theme .sidebar ul li .tooltip{
     white-space: nowrap;
 }
 .sidebar ul li a:hover{
-    color: var(--white-sidebar-text);
-    /* background-color: var(--green-dark); */
-    background-color: #d7eaff;
+    background-color: var(--background-btn-hover);
 }
 .sidebar ul li a:hover i{
     transition: all 0.4s ease;
-    color: black;
+    /* color: black; */
 }
 
 .sidebar ul li i{

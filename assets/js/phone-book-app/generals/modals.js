@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const showModal = () => {
         modal.style.right = "0";
         modal.style.zIndex = "250";
+        
         modal.style.opacity = "1";
 
         overlay.style.display = "block";
