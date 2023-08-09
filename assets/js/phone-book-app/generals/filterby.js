@@ -18,14 +18,3 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Agregar el efecto hover a las opciones del menú desplegable
-// const filterOptions = document.querySelectorAll(".filter-options ul li a");
-// filterOptions.forEach((option) => {
-//   option.addEventListener("mouseenter", () => {
-//     option.style.backgroundColor = "#005ce6";
-//   });
-
-//   option.addEventListener("mouseleave", () => {
-//     option.style.backgroundColor = "transparent";
-//   });
-// });

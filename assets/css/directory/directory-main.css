@@ -15,22 +15,22 @@
     border-radius: 0.8rem;
     padding: 0.4rem 1.2rem;
 }
-.sales-position span{
+/* .sales-position span{
     border: .1rem solid var(--border-sales-label);
     background-color: var(--background-sales-label);
     color: var(--color-sales-label);
-}
+} */
 .sales-department span{
     border: .1rem solid var(--border-sales-label-light);
     background-color: var(--background-sales-label-light);
     color: var(--color-sales-label-light);
 }
 
-.agent-position span {
+/* .agent-position span {
   border: .1rem solid var(--border-agent-label);
   background-color: var(--background-agent-label);
   color: var(--color-agent-label);
-}
+} */
 
 .agent-department span {
   border: .1rem solid var(--border-agent-label-light);
@@ -38,11 +38,11 @@
   color: var(--color-agent-label-light);
 }
 
-.uw-position span {
+/* .uw-position span {
   border: .1rem solid var(--border-uw-label);
   background-color: var(--background-uw-label);
   color: var(--color-uw-label);
-}
+} */
 
 .uw-department span {
   border: .1rem solid var(--border-uw-label-light);
@@ -50,11 +50,11 @@
   color: var(--color-uw-label-light);
 }
 
-.regional-position span {
+/* .regional-position span {
   border: .1rem solid var(--border-regional-label);
   background-color: var(--background-regional-label);
   color: var(--color-regional-label);
-}
+} */
 
 .regional-department span {
   border: .1rem solid var(--border-regional-label-light);
@@ -62,11 +62,11 @@
   color: var(--color-regional-label-light);
 }
 
-.noc-position span {
+/* .noc-position span {
   border: .1rem solid var(--border-noc-label);
   background-color: var(--background-noc-label);
   color: var(--color-noc-label);
-}
+} */
 
 .noc-department span {
   border: .1rem solid var(--border-noc-label-light);
@@ -74,11 +74,11 @@
   color: var(--color-noc-label-light);
 }
 
-.it-position span {
+/* .it-position span {
   border: .1rem solid var(--border-it-label);
   background-color: var(--background-it-label);
   color: var(--color-it-label);
-}
+} */
 
 .it-department span {
   border: .1rem solid var(--border-it-label-light);
