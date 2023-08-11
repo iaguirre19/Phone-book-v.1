@@ -4,33 +4,32 @@
 .table-directory{
     width: 100%;
 }
+
 .adminTools_content-table-container tbody td {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--gray);
   
 }
-.user_department span,
+
+
 .user_position span{
+  border-radius: 0.8rem;
+}
+.user_department span{
     border-radius: 0.8rem;
     padding: 0.4rem 1.2rem;
+    display: block;
+    width: 90%;
+    text-align: center;
 }
-/* .sales-position span{
-    border: .1rem solid var(--border-sales-label);
-    background-color: var(--background-sales-label);
-    color: var(--color-sales-label);
-} */
+
 .sales-department span{
     border: .1rem solid var(--border-sales-label-light);
     background-color: var(--background-sales-label-light);
     color: var(--color-sales-label-light);
 }
 
-/* .agent-position span {
-  border: .1rem solid var(--border-agent-label);
-  background-color: var(--background-agent-label);
-  color: var(--color-agent-label);
-} */
 
 .agent-department span {
   border: .1rem solid var(--border-agent-label-light);
@@ -38,11 +37,6 @@
   color: var(--color-agent-label-light);
 }
 
-/* .uw-position span {
-  border: .1rem solid var(--border-uw-label);
-  background-color: var(--background-uw-label);
-  color: var(--color-uw-label);
-} */
 
 .uw-department span {
   border: .1rem solid var(--border-uw-label-light);
@@ -50,11 +44,7 @@
   color: var(--color-uw-label-light);
 }
 
-/* .regional-position span {
-  border: .1rem solid var(--border-regional-label);
-  background-color: var(--background-regional-label);
-  color: var(--color-regional-label);
-} */
+
 
 .regional-department span {
   border: .1rem solid var(--border-regional-label-light);
@@ -62,11 +52,6 @@
   color: var(--color-regional-label-light);
 }
 
-/* .noc-position span {
-  border: .1rem solid var(--border-noc-label);
-  background-color: var(--background-noc-label);
-  color: var(--color-noc-label);
-} */
 
 .noc-department span {
   border: .1rem solid var(--border-noc-label-light);

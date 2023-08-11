@@ -96,7 +96,7 @@
 
 /* Estilos para el encabezado de la tabla */
 .adminTools_content-table-container thead th {
-  background-color: #f2f2f2;
+  background-color:#f1f8ff;
   text-align: left;
   padding: 10px;
   font-weight: 600;

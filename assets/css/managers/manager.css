@@ -7,23 +7,26 @@
     max-width: 100%;
     max-height: 100vh;
 }
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto min-content auto;
+  gap: 1.6rem; /* Espacio entre los hijos */
+}
 .card{
-    height: 240px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.2rem;
-    align-items: start;
-    justify-content: space-between;
-    padding:2rem ;
-    background-color: #f4f4f4;
-    border-radius: .4rem;
-    width: 100%;
+    height: 200px;
+    padding:0 2rem ;
+    background-color: var(--bg-card-manager);
+    border-radius: .6rem;
+    width: 360px;
+    box-shadow:2px 2px 4px rgba(0, 0, 0, 0.1); ;
 }
 .card_profile-img{
     display: flex;
     align-items: center;
     width: 100%;
     column-gap: 1.2rem;
+    border-bottom: .1rem solid var(--border-color);
 }
 .card_img-container{
     width: 5rem;
@@ -51,8 +54,46 @@
 .email-card-data{
     color: var(--subtitles-2-cards);
     font-size: var(--subtitle-2-cards);
+}
+.card_tags {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 1.2rem;
+    margin: 0 auto;
+    box-sizing: border-box; /* Asegura que el padding no afecte al ancho total */
 
 }
+.tags_container{
+    font-size: 1.2rem;
+}
 
-
+.department-card-data,
+.position-card-data{
+    border-radius: .6rem;
+    padding: .2em 1.4rem;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.it-bg-p,
+.it-bg-d{
+    background-color: var(--background-it-label-light);
+    color: var(--color-it-label-light);
+}
+.card_data-contact{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2rem;
+}
+.card_data-contact > * {
+    font-size: 1.2rem;
+    color: var(--regular-text);
+    display: flex;
+    column-gap: 1.2rem;
+}
+.card_data-contact > * i{
+    font-size: 1.6rem;
+}
 
