@@ -12,20 +12,27 @@
     transition: right 0.5s ease;
 }
 .modals_container{
-    background-color: #fff;
     width: 100%;
     height: 100%;
-    padding: 2.4rem 1.6rem;
-    border-top-left-radius: 2.4rem;
-    border-bottom-left-radius: 2.4rem;
-    box-shadow: var(--shadown-light-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .add_newuser-directory,
 .add_newuser-modal{
+    padding: 2.4rem 1.6rem;
+    border-top-left-radius: 2.4rem;
+    border-bottom-left-radius: 2.4rem;
+    box-shadow: var(--shadown-light-1);
+    background-color: #fff;
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+#modalAdmin{
+    height: 80%;
 }
 
 .add_newuser-content {
@@ -35,6 +42,7 @@
     grid-template-rows: 30% 70%;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .content-img {
     grid-row: 1/2;
@@ -286,12 +294,20 @@
 .add_newuser-modal{
     display: none;
 }
-
+.icons-close{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.icons-close i{
+    font-size: 2.4rem;
+    cursor: pointer;
+}
 
 
 
 @media (min-width: 1400px) {
     .modals_container{
-        width: 26vw;
+        width: 30vw;
     }
 }

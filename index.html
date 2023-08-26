@@ -43,13 +43,6 @@
                 </a>
                 <span class="tooltip">Directory</span>
             </li>
-            <!-- <li>
-                <a href="#offices">
-                    <i class='bx bx-buildings icon' ></i>
-                    <span class="links_name">Offices</span>
-                </a>
-                <span class="tooltip">Offices</span>
-            </li> -->
             <li>
                 <a href="#managers">
                     <i class='bx bx-user icon'></i>
@@ -76,8 +69,11 @@
             <div class="modals" id="modal">
                 <div class="modals_container">
                     <!-- Modal new admins or users -->
-                    <div class="add_newuser-modal">
+                    <div class="add_newuser-modal" id="modalAdmin">
                         <div class="add_newuser-content">
+                          <div class="icons-close" id="closeModal">
+                            <i class='bx bx-x'></i>
+                          </div>
                             <div class="content-img">
                                 <div class="input-container-profile">
                                     <div class="input-content-profile">
@@ -144,9 +140,28 @@
                             </form>
                         </div>
                     </div>
-                  <!-- <div class="add_newuser-directory">
-                      <h2>Hola mundo modalesco</h2>
-                  </div> -->
+                  <div class="add_newuser-directory" id="modalDirectory">
+                      <div class="newuser-content">
+                        <div class="content-img">
+                          <div class="input-container-profile">
+                            <div class="input-content-profile">
+                                <input class="input-file input-modal" type="file" name="profile-picture" id="profile-img-directory" data-type="profilePicture">
+                                <div class="input-cont-sub">
+                                    <span class="bx bx-camera"></span>
+                                </div>
+                                <img class="uploaded-image" id="profileImage" src="#" alt="">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="new_user-form"></div>
+                      </div>
+                  </div>
+                  <div class="add_newuser-directory" id="modalManagers">
+                    <div class="newuser-content">
+                      <div class="content-img"></div>
+                      <div class="new_user-form"></div>
+                    </div>
+                  </div>
                   <div class="add_newuser-directory">
                     <div class="add_newuser-content">
                         <div class="content-img">
@@ -845,12 +860,11 @@
             </section>
         </main>
     </div>
+    <!------------------------------------- Old scripts -------------------------------------------->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script> -->
     <!-- <script src="./assets/js/phone-book-app/dashboard/graffic.js"></script> -->
     <!-- <script type="module" src="./assets/js/generals/authUser.js"></script> -->
-    <script src="./assets/js/users/admin.js"></script>
     <!-- <script src="./assets/js/phone-book-app/generals/sidebar/directory.js"></script> -->
-    <script src="./assets/js/phone-book-app/generals/modals.js"></script>
     <!-- <script src="./assets/js/phone-book-app/generals/sidebar/navbar.js"></script> -->
     <!-- <script src="./assets/js/phone-book-app/generals/chnageTheme.js"></script> -->
     <!-- <script src="./assets/js/phone-book-app/admin-tools/pagination-admin-tools.js"></script> -->
@@ -858,12 +872,14 @@
     <!-- <script src="./assets/js/dashboard/addNewUser.js" type="module"></script> -->
     <!-- <script src="./assets/js/detailCard.js"></script> -->
     <!-- <script src="../assets/js/conection.js"></script> -->
-
-
-
+      
+      
+      
+        <script src="./assets/js/users/admin.js"></script>
+        <script src="./assets/js/phone-book-app/generals/modals.js"></script>
         <!-- <script src="./assets/js/phone-book-app/generals/links-content.js"></script> -->
         <script type="module" src="./assets/js/phone-book-app/generals/sidebar/links-sidebar.js"></script>
-        <script src="./assets/js/phone-book-app/validationModalForm.js"></script>
+        <script src="./assets/js/phone-book-app/modals/validationModalForm.js"></script>
         <script src="./assets/js/phone-book-app/generals/filterby.js"></script>
 
 </body>
