@@ -52,23 +52,6 @@ async function loginRequest(event){
     email,
     password,
   };
-
-  // try {
-  //   submitBtn();
-  //   const dataFromServer = await loginAuth(loginData);
-  //   const status = await handleResponse(dataFromServer); // Espera a que la promesa se resuelva o se rechace
-  //   if (status === 200) {
-  //     const token = localStorage.getItem("token");
-  //     const user = await getUserLoggedIn(token);
-  //     localStorage.setItem("user", JSON.stringify(user));
-  //     window.location.href = "index.html#dashboard";
-      
-  //     // console.log(userObj)
-  //   }
-  // } catch (error) {
-  //   const e = new Error("Error 404, Please contact IT department.");
-  // };
-
   try {
     submitBtn();
 

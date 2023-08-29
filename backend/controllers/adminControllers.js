@@ -158,7 +158,7 @@ const phoneBook = async (req, res) => {
       "-password -token -confirmed"
     );
 
-    res.json(users); // Envía la lista de usuarios en formato JSON como respuesta
+    res.json(users); 
   } catch (error) {
     res.status(500).json({ message: "Error al obtener los usuarios", error });
   }
