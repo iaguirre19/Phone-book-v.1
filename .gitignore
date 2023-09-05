@@ -133,5 +133,5 @@ dist
 # backend/
 
 # private routes
-conf/
-api/
+# conf/
+# api/
